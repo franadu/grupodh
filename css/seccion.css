@@ -96,82 +96,33 @@ a{
 	border-radius: 2px;
 	margin-right: 3px;
 }
-h1{
-	font-size: 30px;
-}
-main{
-	margin: 10px;
+
+.product{
+	width: 40%;
+	position: relative;
 }
 
-.questions li:first-child{
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+.product img{
+	width: 100%;
 }
-.questions li:last-child{
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-.questions {
-  margin-bottom: 1px;
-  padding: 20px;
-}
-.questions li{
-	background: #C5C6BB;
-	margin-bottom: 1px;
-	padding: 5px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.questions li:hover{
-	background: #9B9B95;
-}
-.questions a{
-	font-size: 20px;
+.product-inside{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	color: #fff;
+	margin-bottom: 35px;
 }
 
-.answers {
-	padding: 20px;
-}
-.answers h2{
-	font-size: 20px;
-	margin-bottom: 15px;
-}
-.answers p{
-	font-size: 16px;
-}
-.answers article{
-	margin-bottom: 10px;
+.product-inside:hover{
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
 }
 
-.pie_pagina{
-	background: #F2F2EB;
-	height: 60px;
-	display: flex;
-	justify-content: center;
-}
-.pie_pagina ul{
+.articles{
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
-.pie_pagina li{
-	text-align: center;
-}
-.pie_pagina a{
-	font-size: 12px;
-	margin: 5px;
-	text-align: center;
-	color: 444;
-}
-
-
-
-
-
-
-
-
-
-/* .. */
