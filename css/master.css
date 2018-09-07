@@ -52,8 +52,7 @@ a{
   text-decoration: none;
   color: #000;
 }
-/* EPAAAAAAAAAAAAA */
-
+/* CSS GENENRAL */
 
 *{
 	box-sizing: border-box;
@@ -138,7 +137,7 @@ h1{
 .questions a{
 	font-size: 20px;
 }
-
+ /* CAJA DE RESPUESTAS */
 .answers {
 	padding: 20px;
 }
@@ -151,8 +150,52 @@ h1{
 }
 .answers article{
 	margin-bottom: 10px;
+}/*AQUI TERMINA EL CSS DEL MAIN*/
+
+/* ESTE ES EL CSS DE LA PAGINA DE NOTEBOOKS */
+.product{
+	width: 40%;
+	position: relative;
+	margin-bottom: 10px;
 }
 
+.product img{
+	width: 100%;
+	border-radius: 10px;
+}
+
+.product:hover{
+  /* tranformamos el elemento al pasar el mouse por encima al doble de
+  su tamaño con scale(1.1). */
+  transform : scale(1.1);
+  -moz-transform : scale(1.1);      /* Firefox */
+  -webkit-transform : scale(1.1);   /* Chrome - Safari */
+  -o-transform : scale(1.1);			/* Opera */
+}
+   /*CAJA DE ADENTRO QUE CONTINE EL PRECIO Y TITULO DEL PRODUCTO*/
+.product-inside{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	color: #fff;
+	margin-bottom: 35px;
+}
+
+.product-inside:hover{
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+
+.articles{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}/*AQUI TERMINO LA PAGINA DE NOTEBOOKS*/
+
+/* ESTE ES EL FOOTEER */
 .pie_pagina{
 	background: #F2F2EB;
 	height: 60px;
