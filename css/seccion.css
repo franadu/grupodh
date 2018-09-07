@@ -54,12 +54,14 @@ a{
 }
 /* EPAAAAAAAAAAAAA */
 
-.body{
+body{
 	box-sizing: border-box;
+	background-color: #E5E5D7;
 }
 .cabezera{
 	background: #FAFA17;
 	height: 80px;
+	margin-bottom: 10px;
 }
 .logo {
   text-align: center;
@@ -100,10 +102,21 @@ a{
 .product{
 	width: 40%;
 	position: relative;
+	margin-bottom: 10px;
 }
 
 .product img{
 	width: 100%;
+	border-radius: 10px;
+}
+
+.product:hover{
+  /* tranformamos el elemento al pasar el mouse por encima al doble de
+  su tamaño con scale(2). */
+  transform : scale(1.1);
+  -moz-transform : scale(1.1);      /* Firefox */
+  -webkit-transform : scale(1.1);   /* Chrome - Safari */
+  -o-transform : scale(1.1);			/* Opera */
 }
 .product-inside{
 	position: absolute;
@@ -126,3 +139,24 @@ a{
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
+
+/* ESTE ES STYLE DE PIE DE PAGGINA */
+.pie_pagina{
+	background: #F2F2EB;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+}
+.pie_pagina ul{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.pie_pagina li{
+	text-align: center;
+}
+.pie_pagina a{
+	font-size: 12px;
+	margin: 5px;
+	text-align: center;
+	col
