@@ -48,7 +48,6 @@ table {
 	border-spacing: 0;
 }
 a{
-  list-style: none;
   text-decoration: none;
   color: #000;
 }
@@ -58,17 +57,35 @@ a{
 	box-sizing: border-box;
 }
 
+body{/*Agrego para poder manejar todo con em*/
+	font-size: 10px;
+}
+
 /* CABEZERA */
 .cabezera{
 	background: #FAFA17;
 	height: 80px;
 }
 .logo {
-  text-align: center;
+	display: flex;
+  flex-direction: row;
+	align-items:center;
   width: 100%;
+}
+.logo a{
+	margin:0 auto;
+}
+.logo a:last-child{
+	margin:0;
 }
 .logo img{
   width: 47px;
+}
+.logo button{
+	background-color: ;
+}
+.fas.fa-bars{
+	align-self: flex-end;
 }
 
 /* NAV DEL MENU */
@@ -88,8 +105,13 @@ a{
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-
 }
+
+.fas.fa-search{
+	padding: 10px;
+	padding-right: 30px;
+}
+
 /* CAJA DEL BUSCADOR */
 .menu form{
 	width: 55%;
@@ -110,14 +132,6 @@ h1{
 	font-size: 30px;
 }
 /* CUADRO DE PREGUNTAS  */
-.questions li:first-child{
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-.questions li:last-child{
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
 .questions {
   margin-bottom: 1px;
   padding: 20px;
@@ -131,6 +145,17 @@ h1{
 	align-items: center;
 	justify-content: center;
 }
+
+.questions li:first-child{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.questions li:last-child{
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
 .questions li:hover{ /*CAMBIO DE COLOR SOBRE EL MOUSE EN PREGUNTAS*/
 	background: #9B9B95;
 }
