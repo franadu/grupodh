@@ -61,6 +61,11 @@ body{/*Agrego para poder manejar todo con em*/
 	font-size: 10px;
 }
 
+h1 {	font-size: 4em;}
+h2 {	font-size: 3em;}
+h3 {	font-size: 2em;}
+h4 {	font-size: 1.8em;}
+
 /* CABEZERA */
 .cabezera{
 	background: #FAFA17;
@@ -86,6 +91,10 @@ body{/*Agrego para poder manejar todo con em*/
 }
 .fas.fa-bars{
 	align-self: flex-end;
+}
+.fas.fa-bars:hover{
+	font-size: 2em;
+	color:grey;
 }
 
 /* NAV DEL MENU */
@@ -121,7 +130,40 @@ body{/*Agrego para poder manejar todo con em*/
 	border: 1px solid #9B9B95;
 	border-radius: 2px;
 	margin-right: 3px;
-} /*AQUI TERMINA EL LA CABEZERA */
+}
+
+
+/*AQUI TERMINA EL LA CABEZERA */
+/*____________________________*/
+
+/*Arranca Cuerpo del Home Mobile*/
+body { width:100%;}
+.Home {	margin: 10 auto;}
+.Home .row {	border: 4px solid black; margin:0; display: flex; flex-direction: column; align-items: center;}
+.Home .row h1 {	width:100%;	font-size: 4em; text-align: center; margin: 10px 0;} /*Centra el titutlo en la pagina*/
+
+/*Secciones Propagandas y Categorias en general*/
+.Home .row .col-md-8 {	width: 98	%; padding:10px; border: 2px solid Grey; border-radius:5px;  } /*Esto saca la forma de ocupar 8 espacios de doce Bootstrap*/
+
+/*Arranca Seccion Propaganda*/
+.Home .row .col-md-8 .Propaganda article {	width:98%; padding:10px;position: relative; overflow:visible; }
+.Propaganda article img { width:100%;margin: 0 auto;}
+.Propaganda article p { width: 100%; position: absolute; background-color: rgba(0,0,0,0.5); bottom:47.5%; text-align: center; color:white;}
+.Propaganda article h4 {	position:absolute; right:0; width:25%;}
+/*Finaliza seccion Propagada*/
+
+.Home .row .col-md-8 .Categorias
+/*Finaliza seccion Categorias*/
+/*Finaliza seccion Propagandas y Categorias*/
+
+/*Arranca seccion Navcategorias*/
+.Home .row .col-md-4 {}/*Lo mismo que la anterior*/
+.Home .row .col-md-4 .navcategorias { display:none;}
+
+
+/*Termin el Cuerpo del home Mobile*/
+/*____________________________*/
+
 
 /* CUERPO PRINCIPAL DE PAGINA DE PREGUNTAS */
 main{
