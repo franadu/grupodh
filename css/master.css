@@ -275,6 +275,11 @@ h1{
 	flex-wrap: wrap;
 }/*AQUI TERMINO LA PAGINA DE NOTEBOOKS*/
 
+/* CAJA DE CATEGORIAS */
+.side-nav{
+	display: none;
+}
+
 /* ESTE ES EL FOOTEER */
 .pie_pagina{
 	background: #F2F2EB;
