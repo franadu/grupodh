@@ -8,7 +8,7 @@ diseño mobile*/
 	display: flex;
   align-items: center;
   border-radius: 10px;
-  margin:0 auto;
+  padding: 10px;
 }
 
 h1{
@@ -44,6 +44,10 @@ main{
 }
 .dato_interno i{
   font-size: 2em;
+  padding-right: 2px;
+  width: 23px;
+  height: 23px;
+
 }
 
 
