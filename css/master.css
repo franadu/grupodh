@@ -138,6 +138,27 @@ h4 {	font-size: 1.8em;}
 
 
 /*AQUI TERMINA EL LA CABEZERA */
+
+/* PAGINA DE REGISTRO */
+main {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+}
+
+main form{
+	display: flex;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+}
+
+
+
 /*____________________________*/
 
 /*Arranca Cuerpo del Home Mobile*/
