@@ -32,6 +32,11 @@ main{
 	flex-direction: row;
 }
 
+.dato_interno{
+  margin-bottom: 10px;
+
+}
+
 footer{
   color:white;
   background-color: black;
@@ -43,13 +48,21 @@ footer{
   margin:0 auto;
 }
 
-.iniciar{
+.iniciar a, .registrarse a{
 	font-family: 'Baloo Tammudu', cursive;
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
-.Registrarse{
-	font-family: 'Baloo Tammudu', cursive;
+.boton{
+  display:flex;
+  justify-content: center;
 }
+
+/* .registrarse{
+	font-family: 'Baloo Tammudu', cursive;
+} */
 
 button{
 	border-radius: 5px;
