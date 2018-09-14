@@ -84,6 +84,7 @@ h4 {	font-size: 1.8em;}
 .logo a{
 	margin:0 auto;
 }
+
 .logo a:last-child{
 	margin:0;
 }
@@ -110,6 +111,12 @@ h4 {	font-size: 1.8em;}
   align-items: center;
   margin-bottom: 10px;
 	background: #C1D009;
+}
+
+.log_in{
+	display: none;
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
 }
 /* BUSCADOR DEL NAV */
 .buscador{
@@ -167,7 +174,7 @@ main form{
 /*____________________________*/
 
 /*Arranca Cuerpo del Home Mobile*/
-body { width:100%;}
+body { background-color: #F7F7F0;width:100%;}
 .Home {	margin: 10 auto;}
 .Home .row {	border: 4px solid black; margin:0; display: flex; flex-direction: column; align-items: center;}
 .Home .row h1 {	width:100%;	font-size: 4em; text-align: center; margin: 10px 0;} /*Centra el titutlo en la pagina*/
@@ -211,6 +218,7 @@ main{
 
 h1{
 	font-size: 30px;
+	font-family: 'Merriweather', serif;
 }
 /* CUADRO DE PREGUNTAS  */
 .questions {
@@ -240,6 +248,9 @@ h1{
 .questions li:hover{ /*CAMBIO DE COLOR SOBRE EL MOUSE EN PREGUNTAS*/
 	background: #9B9B95;
 }
+.questions h2{
+	font-family: 'Merriweather', serif;
+}
 .questions a{
 	font-size: 20px;
 }
@@ -250,9 +261,11 @@ h1{
 .answers h2{
 	font-size: 20px;
 	margin-bottom: 15px;
+	font-family: 'Merriweather', serif;
 }
 .answers p{
 	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
 }
 .answers article{
 	margin-bottom: 10px;
@@ -308,10 +321,12 @@ h1{
 
 /* ESTE ES EL FOOTEER */
 .pie_pagina{
-	background: #F2F2EB;
+	background: #AAAAA0;
 	height: 60px;
 	display: flex;
 	justify-content: center;
+	border-top: 1px solid #929291;
+	margin-top: 30px;
 }
 .pie_pagina ul{
 	display: flex;
@@ -328,7 +343,73 @@ h1{
 	color: 444;
 }
 
+@media (min-width: 768px) {
+	header{
+		margin-bottom: 40px;
+	}
+	.menu{
+		height: 40px;
+	}
+	.logo img{
+		width: 58px;
+	}
+	.menu input{
+		height: 30px;
+	}
+	.menu form a{
+		font-size: 1.5em;
+	}
+	.logo a i{
+		display: none;
+	}
+	.log_in{
+		display: inline-block;
+		font-size: 1.1em;
+	}
 
+	.barras, .login_bar{
+		font-size: 1.5em;
+	}
+	#principal_pregunta{
+		font-size: 4em;
+		align-self: flex-start;
+		margin-left: 40px;
+	}
+	.questions{
+		width: 90%;
+	}
+
+	.questions a{
+		font-size: 2.5em;
+	}
+	.answers h2{
+		font-size: 2.5em;
+	}
+	.answers p{
+		font-size: 1.6em;
+	}
+	.pie_pagina a {
+		font-size: 1.5em;
+		font-family: 'Merriweather', serif;
+	}
+}
+@media (min-width: 1200px){
+	body{
+		background-color: #F7F7F0;
+	}
+	main{
+		max-width: 1170px;
+		margin: 0 auto;
+	}
+
+	.answers{
+		border: 1px solid #000;
+		background: #fff;
+		width: 90%;
+		border-radius: 5px;
+	}
+
+}
 
 
 
