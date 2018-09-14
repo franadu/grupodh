@@ -4,9 +4,9 @@ diseño mobile*/
   background-color: rgba(12, 0, 0, 0.5);
   color: white;
   width: 90%;
-  justify-content: center;
+
 	display: flex;
-  align-items: center;
+
   border-radius: 10px;
   padding: 10px;
 }
@@ -83,4 +83,41 @@ footer{
   justify-content: center;
 	padding: 20px;
   margin:0 auto;
+}
+
+@media (min-width:768px) {
+  main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .dato_interno{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+
+.dato_interno i{
+  font-size: 30px;
+  margin-right: 20px;
+}
+    form{
+      display: flex;
+      align-content: center;
+}
+    .caja_formulario{
+      justify-content: center;
+      width:80%;
+      margin: 10px;
+}
+    div.datos{
+      display:block;
+      justify-content: center;
+}
+    button{
+      justify-content: flex-start;
+}
+  a{
+    text-align: center;
+  }
 }
