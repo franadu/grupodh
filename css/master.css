@@ -63,6 +63,13 @@ a:hover {
 
 body{/*Agrego para poder manejar todo con em*/
 	font-size: 10px;
+	min-width: 330px;
+}
+main{
+ margin:0 auto;
+	background-image: url(../images/carta.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 h1 {	font-size: 4em;}
@@ -118,6 +125,7 @@ h4 {	font-size: 1.8em;}
 	font-family: 'Merriweather', serif;
 	font-weight: bold;
 }
+
 /* BUSCADOR DEL NAV */
 .buscador{
   width: 50%;
@@ -152,16 +160,14 @@ h4 {	font-size: 1.8em;}
 /*AQUI TERMINA EL LA CABEZERA */
 
 /* PAGINA DE REGISTRO */
-main {
+.Registros {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	align-content: center;
 	align-items: center;
 }
-
-main form{
-	display: flex;
+.Registros form{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -174,19 +180,20 @@ main form{
 /*____________________________*/
 
 /*Arranca Cuerpo del Home Mobile*/
-body { background-color: #F7F7F0;width:100%;}
-.Home {	margin: 10 auto;}
+body { background-color: #F7F7F0;width:100%; }
+.Home {	margin: 10 auto; }
 .Home .row {	border: 4px solid black; margin:0; display: flex; flex-direction: column; align-items: center;}
 .Home .row h1 {	width:100%;	font-size: 4em; text-align: center; margin: 10px 0;} /*Centra el titutlo en la pagina*/
 
 /*Secciones Propagandas y Categorias en general*/
-.Home .row .col-md-8 {	width: 98	%; padding:10px; border: 2px solid Grey; border-radius:5px;  } /*Esto saca la forma de ocupar 8 espacios de doce Bootstrap*/
+.Home .row .col-md-8 {	width: 98%; padding:10px; border: 2px solid Grey; border-radius:5px;  } /*Esto saca la forma de ocupar 8 espacios de doce Bootstrap*/
 
 /*Arranca Seccion Propaganda*/
 .Home .row .col-md-8 .Propaganda article {	width:98%; padding:10px;position: relative; overflow:visible; }
 .Propaganda article img { width:100%;margin: 0 auto;}
 .Propaganda article p { width: 100%; position: absolute; background-color: rgba(0,0,0,0.5); bottom:47.5%; text-align: center; color:white;}
 .Propaganda article h4 {	position:absolute; right:0; width:25%;}
+.p2, .p3 {	display: none;}/*Por el momento las saco*/
 /*Finaliza seccion Propagada*/
 
 /*Arranca Seccion Categorias*/
@@ -344,6 +351,9 @@ h1{
 }
 
 @media (min-width: 768px) {
+	/*Arranca REsponsive para Tablets*/
+
+	/*Afecata Cabezeras en general*/
 	header{
 		margin-bottom: 40px;
 	}
@@ -366,10 +376,14 @@ h1{
 		display: inline-block;
 		font-size: 1.1em;
 	}
-
 	.barras, .login_bar{
 		font-size: 1.5em;
 	}
+	/*Finaliza Responsive table Cabezera*/
+
+	/*Inician los responsives para Tablets de Main en cada html*/
+
+	/*Inicia Responsive Tablets para Main de preguntas.html*/
 	#principal_pregunta{
 		font-size: 4em;
 		align-self: flex-start;
@@ -378,7 +392,6 @@ h1{
 	.questions{
 		width: 90%;
 	}
-
 	.questions a{
 		font-size: 2.5em;
 	}
@@ -388,10 +401,34 @@ h1{
 	.answers p{
 		font-size: 1.6em;
 	}
+	/*Finaliza Responsive Tablets para Main de preguntas.hmtl*/
+
+
+	/*Inicia Responsive Tablets para Main de ecommerce-home.html*/
+	.Home {	}
+	.Home .row {	 margin:0;   display:flex; flex-direction: row;align-items: flex-start;}
+	.Home .row .col-md-8 { width: 66.66666667%;  }
+	.Home .row .col-md-4  {	 width: 20.333%; margin:0 0 0 0;padding:10px; border: 2px solid Grey; border-radius:5px; margin-right:0;  }
+	.Home .row .col-md-4 .navcategorias {	display: contents;}
+	.Home .row .col-md-4 .navcategorias h3 {	width: 30%; margin:0; text-align: right;}
+	.Home .row .col-md-4 .navcategorias ul {	width:30%;margin:0;}
+
+
+
+
+	/*Finaliza Responsive Tablets para Main de ecommerce-home.html*/
+
+
+	/*Finalizan los responsives para Tablets de Main en cada html*/
+
+
+	/*Responsive General para Pie de ¨Pagina*/
 	.pie_pagina a {
 		font-size: 1.5em;
 		font-family: 'Merriweather', serif;
 	}
+
+	/*FInaliza Responsive para Tablets*/
 }
 @media (min-width: 1200px){
 	body{
@@ -416,5 +453,87 @@ h1{
 
 
 
-
+/*TODO*/
 /* .. */
+/* Empieza mi estilo
+diseño mobile Registro y Log_in*/
+/* .caja_formulario{
+ background-color: rgba(12, 0, 0, 0.5);
+ color: white;
+ width: 90%;
+​
+	display: flex;
+​
+ border-radius: 10px;
+ padding: 10px;
+}
+​
+h1{
+ display: flex;
+ justify-content: center;
+ background-color:grey;
+	padding: 20px;
+ width:100%;
+ margin: 0 auto;
+}
+​
+
+​
+.datos{
+ margin:20px;
+	flex-direction: row;
+ width: 100%;
+}
+​
+.dato_interno{
+ margin-bottom: 10px;
+ width: 100%;
+}
+​
+.dato_interno input{
+ width: 90%;
+ height: 30px;
+}
+.dato_interno i{
+ font-size: 2em;
+ padding-right: 2px;
+ width: 23px;
+ height: 23px;
+​
+}
+​
+​
+.iniciar a, .registrarse a{
+	font-family: 'Baloo Tammudu', cursive;
+ font-size: 2em;
+ color: #fff;
+}
+​
+.iniciar, .registrarse{
+ margin-bottom: 20px;
+}
+​
+.boton{
+ display:flex;
+ justify-content: center;
+}
+​
+/* .registrarse{
+	font-family: 'Baloo Tammudu', cursive;
+} */
+​/*
+button{
+	border-radius: 5px;
+}
+​
+footer{
+ color:white;
+ background-color: black;
+ width: 100%;
+ display: flex;
+ align-content: center;
+ justify-content: center;
+	padding: 20px;
+ margin:0 auto;
+}
+​ */
