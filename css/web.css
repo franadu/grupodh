@@ -70,21 +70,6 @@ main{
 	font-family: 'Baloo Tammudu', cursive;
 } */
 
-button{
-	border-radius: 5px;
-}
-
-footer{
-  color:white;
-  background-color: black;
-  width: 100%;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-	padding: 20px;
-  margin:0 auto;
-}
-
 @media (min-width:768px) {
   main{
     display: flex;

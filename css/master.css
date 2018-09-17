@@ -65,17 +65,36 @@ body{/*Agrego para poder manejar todo con em*/
 	font-size: 10px;
 	min-width: 330px;
 }
+body { background-color: #F7F7F0;width:100%; }
 main{
- margin:0 auto;
+ 	margin:0 auto;
 	background-image: url(../images/carta.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+main{
+	margin: 10px;
+}
 
+button{
+	border-radius: 5px;
+}
+h1{
+	font-size: 30px;
+	font-family: 'Merriweather', serif;
+}
 h1 {	font-size: 4em;}
 h2 {	font-size: 3em;}
 h3 {	font-size: 2em;}
 h4 {	font-size: 1.8em;}
+h1{
+	display: flex;
+ 	justify-content: center;
+ 	background-color:grey;
+	padding: 20px;
+ 	width:100%;
+ 	margin: 0 auto;
+}​​
 
 /* CABEZERA */
 .cabezera{
@@ -181,7 +200,7 @@ h4 {	font-size: 1.8em;}
 /*____________________________*/
 
 /*Arranca Cuerpo del Home Mobile*/
-body { background-color: #F7F7F0;width:100%; }
+
 .Home {	margin: 10 auto; }
 .Home .row {	border: 4px solid black; margin:0; display: flex; flex-direction: column; align-items: center;}
 .Home .row h1 {	width:100%;	font-size: 4em; text-align: center; margin: 10px 0;} /*Centra el titutlo en la pagina*/
@@ -211,7 +230,6 @@ body { background-color: #F7F7F0;width:100%; }
 /*Finaliza seccion Propagandas y Categorias*/
 
 /*Arranca seccion Navcategorias*/
-.Home .row .col-md-4 {}/*Lo mismo que la anterior*/
 .Home .row .col-md-4 .navcategorias { display:none;}
 
 
@@ -220,6 +238,7 @@ body { background-color: #F7F7F0;width:100%; }
 
 
 /* CUERPO PRINCIPAL DE PAGINA DE PREGUNTAS */
+<<<<<<< HEAD
 .main_preguntas{
 
 	margin: 0 auto;
@@ -234,6 +253,8 @@ h1{
 	font-size: 30px;
 	font-family: 'Merriweather', serif;
 }
+=======
+>>>>>>> 25e94a3b4a72f98eb7987284c33eab77242a3822
 /* CUADRO DE PREGUNTAS  */
 .questions {
   margin-bottom: 1px;
@@ -332,6 +353,48 @@ h1{
 .side-nav{
 	display: none;
 }
+
+/*Arranca Pagina Log_in */
+
+.caja_formulario{
+ 	background-color: rgba(12, 0, 0, 0.5);
+ 	color: white;
+ 	width: 90%;
+	display: flex;
+ 	border-radius: 10px;
+ 	padding: 10px;
+}
+.datos{
+ 	margin:20px;
+	flex-direction: row;
+ 	width: 100%;
+}
+.dato_interno{
+ 	margin-bottom: 10px;
+ 	width: 100%;
+}
+.dato_interno input{
+ 	width: 90%;
+ 	height: 30px;
+}
+.registrarse{
+	font-family: 'Baloo Tammudu', cursive;
+}
+.iniciar, .registrarse{
+ 	margin-bottom: 20px;
+}
+.iniciar a, .registrarse a{
+	font-family: 'Baloo Tammudu', cursive;
+ 	font-size: 2em;
+ 	color: #fff;
+}
+.boton{
+ display:flex;
+ justify-content: center;
+}
+
+
+/*FInaliza Log_in*/
 
 /* ESTE ES EL FOOTEER */
 .pie_pagina{
@@ -454,93 +517,3 @@ h1{
 	}
 
 }
-
-
-
-
-
-
-/*TODO*/
-/* .. */
-/* Empieza mi estilo
-diseño mobile Registro y Log_in*/
-/* .caja_formulario{
- background-color: rgba(12, 0, 0, 0.5);
- color: white;
- width: 90%;
-​
-	display: flex;
-​
- border-radius: 10px;
- padding: 10px;
-}
-​
-h1{
- display: flex;
- justify-content: center;
- background-color:grey;
-	padding: 20px;
- width:100%;
- margin: 0 auto;
-}
-​
-
-​
-.datos{
- margin:20px;
-	flex-direction: row;
- width: 100%;
-}
-​
-.dato_interno{
- margin-bottom: 10px;
- width: 100%;
-}
-​
-.dato_interno input{
- width: 90%;
- height: 30px;
-}
-.dato_interno i{
- font-size: 2em;
- padding-right: 2px;
- width: 23px;
- height: 23px;
-​
-}
-​
-​
-.iniciar a, .registrarse a{
-	font-family: 'Baloo Tammudu', cursive;
- font-size: 2em;
- color: #fff;
-}
-​
-.iniciar, .registrarse{
- margin-bottom: 20px;
-}
-​
-.boton{
- display:flex;
- justify-content: center;
-}
-​
-/* .registrarse{
-	font-family: 'Baloo Tammudu', cursive;
-} */
-​/*
-button{
-	border-radius: 5px;
-}
-​
-footer{
- color:white;
- background-color: black;
- width: 100%;
- display: flex;
- align-content: center;
- justify-content: center;
-	padding: 20px;
- margin:0 auto;
-}
-​ */
