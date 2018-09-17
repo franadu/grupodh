@@ -79,10 +79,6 @@ main{
 button{
 	border-radius: 5px;
 }
-h1{
-	font-size: 30px;
-	font-family: 'Merriweather', serif;
-}
 h1 {	font-size: 4em;}
 h2 {	font-size: 3em;}
 h3 {	font-size: 2em;}
@@ -195,8 +191,6 @@ h1{
 	align-items: center;
 }
 
-
-
 /*____________________________*/
 
 /*Arranca Cuerpo del Home Mobile*/
@@ -238,23 +232,11 @@ h1{
 
 
 /* CUERPO PRINCIPAL DE PAGINA DE PREGUNTAS */
-<<<<<<< HEAD
-.main_preguntas{
-
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	align-items: center;
-	background-image: none;
-}
 
 h1{
 	font-size: 30px;
 	font-family: 'Merriweather', serif;
 }
-=======
->>>>>>> 25e94a3b4a72f98eb7987284c33eab77242a3822
 /* CUADRO DE PREGUNTAS  */
 .questions {
   margin-bottom: 1px;
@@ -508,12 +490,18 @@ h1{
 		max-width: 1170px;
 		margin: 0 auto;
 	}
-
+	.main_preguntas{
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		align-items: center;
+		background-image: none;
+	}
 	.answers{
 		border: 1px solid #000;
 		background: #fff;
 		width: 90%;
 		border-radius: 5px;
 	}
-
 }
