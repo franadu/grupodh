@@ -96,7 +96,7 @@ h1{
 .cabezera{
 	background: #FAFA17;
 	height: 80px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 .logo {
 	display: flex;
@@ -300,6 +300,10 @@ h1{
 }/*AQUI TERMINA EL CSS DEL MAIN*/
 
 /* ESTE ES EL CSS DE LA PAGINA DE NOTEBOOKS */
+#notebooks{
+	background-color: inherit;
+	font-size: 5em;
+}
 .articles{
 	background-image: none;
 }
@@ -356,7 +360,7 @@ h1{
 }/*AQUI TERMINO LA PAGINA DE NOTEBOOKS*/
 
 /* CAJA DE CATEGORIAS */
-.side-nav{
+.menu_lateral{
 	display: none;
 }
 
@@ -431,7 +435,7 @@ h1{
 
 	/*Afecata Cabezeras en general*/
 	header{
-		margin-bottom: 40px;
+		margin-bottom: 10px;
 	}
 	.menu{
 		height: 40px;
@@ -497,7 +501,27 @@ h1{
 
 
 	/*Finalizan los responsives para Tablets de Main en cada html*/
-
+	/* RESPONSIVE PARA LA TABLET DE LA PAGINA NOTEBOOKS */
+	.articles{
+		margin: 10px;
+	}
+	.product{
+		width: 45%;
+		position: relative;
+		margin-bottom: 10px;
+	}
+	.product img{
+		height: auto;
+	}
+	.product-inside{
+		position: absolute;
+		bottom: 0;
+		text-align: center;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.2);
+		color: #fff;
+		margin-bottom: 35px;
+	}
 
 	/*Responsive General para Pie de ¨Pagina*/
 	.pie_pagina a {
@@ -523,10 +547,25 @@ h1{
 		border-radius: 5px;
 	}
 	/* PAGINA DE NOTEBOOKS RESPONSIVE */
+	.principal{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		max-width: 1170px;
+		margin: 0 auto;
+	}
+	.articles{
+		width: 70%;
+		margin: 10px;
+	}
 	.product{
-		width: 40%;
+		width: 30%;
 		position: relative;
 		margin-bottom: 10px;
+	}
+	.product img{
+		height: auto;
 	}
 	.product-inside{
 		position: absolute;
@@ -537,4 +576,22 @@ h1{
 		color: #fff;
 		margin-bottom: 35px;
 	}
+
+	.menu_lateral{
+		display: block;
+		width: 25%;
+		font-size: 2em;
+	}
+	.menu_lateral ul{
+		border: 1px solid #001;
+		border-radius: 5px;
+		padding: 15px;
+		height: 500px;
+		background-color: #fff;
+	}
+	.menu_lateral li{
+		margin-bottom: 15px;
+	}
+
+	/* TERMINA EL RESPONSIVE DE TABLE */
 }
