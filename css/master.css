@@ -401,9 +401,13 @@ h1{
 }
 .boton{
  display:flex;
- justify-content: center;
+ flex-direction: row;
+ align-items: center;
 }
-
+.boton a{
+	color:blue;
+	font-size: 1.7em;
+}
 
 /*FInaliza Log_in*/
 
