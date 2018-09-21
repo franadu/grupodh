@@ -356,6 +356,7 @@ h1{
 	display: flex;
  	border-radius: 10px;
  	padding: 10px;
+	margin: 0 auto;
 }
 .datos{
  	margin:20px;
@@ -384,6 +385,12 @@ h1{
 .boton{
  display:flex;
  justify-content: center;
+}
+.dato_interno i{
+  font-size: 2em;
+  padding-right: 2px;
+  width: 23px;
+  height: 23px;
 }
 
 
@@ -481,7 +488,40 @@ h1{
 
 
 	/*Finaliza Responsive Tablets para Main de ecommerce-home.html*/
+/*Responsive para registros y login*/
+.dato_interno{
+	width: 95%;
+	display: flex;
+	justify-content: center;
+}
 
+.dato_interno i{
+font-size: 30px;
+margin-right: 20px;
+}
+	form{
+		display: flex;
+		align-content: center;
+}
+	.caja_formulario{
+		justify-content: center;
+		width:80%;
+		margin: 0 auto;
+}
+	div.datos{
+		display:block;
+		justify-content: center;
+}
+	button{
+		justify-content: flex-start;
+}
+a{
+	text-align: center;
+}
+}
+
+
+/*Finaliza el responsive para registros y login.*/
 
 	/*Finalizan los responsives para Tablets de Main en cada html*/
 
