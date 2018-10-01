@@ -411,16 +411,13 @@ h1{
 	color:white;
 	font-size: 1.7em;
 }
-<<<<<<< HEAD
+
 .dato_interno i{
   font-size: 2em;
   padding-right: 2px;
   width: 23px;
   height: 23px;
 }
-
-=======
->>>>>>> 9bb6dad5fffe789c13e17c1b0c35492c1025de71
 
 /*FInaliza Log_in*/
 
@@ -546,7 +543,7 @@ margin-right: 20px;
 a{
 	text-align: center;
 }
-}
+
 
 
 /*Finaliza el responsive para registros y login.*/
