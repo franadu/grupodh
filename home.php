@@ -16,7 +16,7 @@
 		<header class="cabezera">
 			<!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
 			<div class="logo">
-				<a href="home.html"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
+				<a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
 				<a><i class="fas fa-bars"></i></a>
 			</div>
 			<!-- MENU DE NAVEGACIO -->
@@ -33,9 +33,9 @@
 					</form>
 					<!-- Barra de Registro-->
 					<div class="login_bar">
-						<a class="log_in" href="registro.html"> Registrarse|</a>
-						<a href="login.html" class="log_in">Login<a>
-						<a href="login.html">	<i class="fas fa-sign-in-alt"></i> </a>
+						<a class="log_in" href="registro.php"> Registrarse|</a>
+						<a href="login.php" class="log_in">Login<a>
+						<a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>
 					</div>
 				</div>
 			</nav><!-- MENU DE NAVEGACION -->
@@ -66,7 +66,7 @@
 
 
 					<section class="Categorias"><!--Todos los articulos disponibles del comercio-->
-						<h3> <a href="notebooks.html"> Notebooks</a></h3>
+						<h3> <a href="notebooks.php"> Notebooks</a></h3>
 						<article class="Cat1" id="Cat1">
 							<div class="Articulo">
 								<img src="./images/notebook4.webp" alt="">
@@ -113,7 +113,7 @@
           <li><a href="#">Trabajá con nosotros</a></li>
           <li><a href="#">Términos y condiciones</a></li>
           <li><a href="#">Políticas de privacidad</a></li>
-          <li><a href="preguntas.html">Preguntas frecuentes</a></li>
+          <li><a href="preguntas.php">Preguntas frecuentes</a></li>
         </ul>
       </div>
     </footer>

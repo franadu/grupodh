@@ -14,7 +14,7 @@
     <header class="cabezera">
       <!-- LOGO -->
       <div class="logo">
-        <a href="home.html"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
+        <a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
         <a><i class="fas fa-bars"></i></a>
       </div>
       <!-- MENU DE NAVEGACIO -->
@@ -31,9 +31,9 @@
 					</form>
 					<!-- Barra de Registro-->
 					<div class="login_bar">
-						<a class="log_in" href="registro.html"> Registrarse|</a>
-						<a href="login.html" class="log_in">Login<a>
-						<a href="login.html">	<i class="fas fa-sign-in-alt"></i> </a>
+						<a class="log_in" href="registro.php"> Registrarse|</a>
+						<a href="login.php" class="log_in">Login<a>
+						<a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>
 					</div>
 				</div>
 			</nav><!-- MENU DE NAVEGACION -->
@@ -115,7 +115,7 @@
       <!-- ESTE ES EL MENU LATERAL SOLO VISIBLE EN DESKTOP -->
       <aside class="menu_lateral">
           <ul>
-            <li><a href="home.html">Home</a></li>
+            <li><a href="home.php">Home</a></li>
             <li><a href="#">Notebooks</a></li>
             <li><a href="#">Smartphones</a></li>
             <li><a href="#">Componentes</a></li>
@@ -129,7 +129,7 @@
           <li><a href="#">Trabajá con nosotros</a></li>
           <li><a href="#">Términos y condiciones</a></li>
           <li><a href="#">Políticas de privacidad</a></li>
-          <li><a href="preguntas.html">Preguntas frecuentes</a></li>
+          <li><a href="preguntas.php">Preguntas frecuentes</a></li>
         </ul>
       </div>
     </footer>
