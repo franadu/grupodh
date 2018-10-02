@@ -41,71 +41,66 @@
 			</nav><!-- MENU DE NAVEGACION -->
 		</header><!-- CABEZERA -->
 		<main class="Home">
-			<div class="row">
-				<h1>Mis Productos</h1>
-				<div class="col-md-8">
-					<section class="Propaganda"><!--Carretel para propagandas propias o Externas-->
-						<h3>Descuentos Rebajas!!!</h3>
-						<article class="p1">
-							<h4>Descuento</h4>
-							<img src="./images/conjunto_electrodomesticos.jpg" alt="">
-							<p>Nombre propaganda</p>
-						</article>
-						<article class="p2">
-							<h4>Descuento</h4>
+			<h1>Mis Productos</h1>
+			<div class="propaganda-categorias">
+				<section class="Propaganda"><!--Carretel para propagandas propias o Externas-->
+					<h3>Descuentos Rebajas!!!</h3>
+					<article class="p1">
+						<h4>Descuento</h4>
+						<img src="./images/conjunto_electrodomesticos.jpg" alt="">
+						<p>Nombre propaganda</p>
+					</article>
+					<article class="p2">
+						<h4>Descuento</h4>
+						<img src="./images/notebook4.webp" alt="">
+						<p>nombre propaganda</p>
+
+					</article>
+					<article class="p3">
+						<h4>Descuento</h4>
+						<img src="./images/Cubiertas.jpg" alt="">
+						<p>Nombre propaganda</p>
+					</article>
+				</section>
+				<section class="Categorias"><!--Todos los articulos disponibles del comercio-->
+					<h3> <a href="notebooks.php"> Notebooks</a></h3>
+					<article class="Cat1" id="Cat1">
+						<div class="Articulo">
 							<img src="./images/notebook4.webp" alt="">
-							<p>nombre propaganda</p>
+							<p>Articulo 1</p>
+						</div>
+						<div class="Articulo">
+							<img src="./images/notebook4.webp" alt="">
+							<p>Articulo 2</p>
+						</div>
+					</article>
+					<h3> <a href="#"> Parlantes, Equipos de Audio</a></h3>
+					<article class="Cat2" id="Cat2">
+						<div class="Articulo">
+							<img src="./images/Parlantes.jpeg" alt="">
+							<p>Articulo 1</p>
+						</div>
+						<div class="Articulo">
+							<img src="./images/equipos-de-sonido.jpeg" alt="">
+							<p>Articulo 2</p>
+						</div>
+					</article>
+					<h3> <a href="#"> Otra Categoria</a></h3>
+					<article class="Cat3" id="Cat3">
 
-						</article>
-						<article class="p3">
-							<h4>Descuento</h4>
-							<img src="./images/Cubiertas.jpg" alt="">
-							<p>Nombre propaganda</p>
-						</article>
-					</section>
-
-
-					<section class="Categorias"><!--Todos los articulos disponibles del comercio-->
-						<h3> <a href="notebooks.php"> Notebooks</a></h3>
-						<article class="Cat1" id="Cat1">
-							<div class="Articulo">
-								<img src="./images/notebook4.webp" alt="">
-								<p>Articulo 1</p>
-							</div>
-							<div class="Articulo">
-								<img src="./images/notebook4.webp" alt="">
-								<p>Articulo 2</p>
-							</div>
-						</article>
-						<h3> <a href="#"> Parlantes, Equipos de Audio</a></h3>
-						<article class="Cat2" id="Cat2">
-							<div class="Articulo">
-								<img src="./images/Parlantes.jpeg" alt="">
-								<p>Articulo 1</p>
-							</div>
-							<div class="Articulo">
-								<img src="./images/equipos-de-sonido.jpeg" alt="">
-								<p>Articulo 2</p>
-							</div>
-						</article>
-						<h3> <a href="#"> Otra Categoria</a></h3>
-						<article class="Cat3" id="Cat3">
-
-							<p>Articulo 3</p>
-						</article>
-					</section>
-				</div>
-			<div class="col-md-4">
-				<section class="navcategorias"><!--Navegador por categorias de Productos-->
-					<h3>Categorias</h3>
-					<ul>
-						<li> <a href="#Propaganda">Propagandas</a> </li>
-						<li> <a href="#Cat1">Notebooks</a> </li>
-						<li> <a href="#Cat2">Parlantes, Equipos de Audio</a> </li>
-						<li> <a href="#Cat3">Categoria de Productos 3</a> </li>
-					</ul>
+						<p>Articulo 3</p>
+					</article>
 				</section>
 			</div>
+			<section class="navcategorias"><!--Navegador por categorias de Productos-->
+				<h3>Categorias</h3>
+				<ul>
+					<li> <a href="#Propaganda">Propagandas</a> </li>
+					<li> <a href="#Cat1">Notebooks</a> </li>
+					<li> <a href="#Cat2">Parlantes, Equipos de Audio</a> </li>
+					<li> <a href="#Cat3">Categoria de Productos 3</a> </li>
+				</ul>
+			</section>
 		</main>
 		<footer>
       <div class="pie_pagina">
