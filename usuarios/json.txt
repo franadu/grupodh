@@ -1,0 +1,1 @@
+{"usuario":[{"nombre":"  Fran","apellido":"Adur","mail":"mail@mail.co","username":"franadu","tel":"1522+6519","contra":"$2y$10$fxBu.T4M4hOZ9ZFYjFVy1.vw1TxkKAgBY8HBe37tL\/waYKlGCl78C","avatar":"usuarios\/uploads\/0\/WIN_20180818_14_37_21_Pro.jpg"}]}

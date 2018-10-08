@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<?php require "funciones/funciones.php";
+ if (!empty($_POST)){
+  $error=validacionRegistro($_POST);
+  //$error["size"]=validacionImagen($_FILES);
+  $nombre=$_POST["nombre"];
+  $apellido=$_POST["apellido"];
+  $mail=$_POST["mail"];
+  $user=$_POST["username"];
+  $tel=$_POST["tel"];
+  if (isset($_POST["recordarme"])){
+    $recordarme=$_POST["recordarme"];
+  }
+  if (!$error){
+    registrarUsuario($_POST,$_FILES);
+    header("location:login.php");
+    exit;
+  }
+ }
+ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -13,6 +32,7 @@
   <body>
     <!-- CABEZERA -->
     <header class="cabezera">
+      <?php  var_dump($_FILES); var_dump($_POST);?>
       <!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
       <div class="logo">
         <a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
@@ -26,7 +46,7 @@
 						<a href = "#"><i class="fas fa-shopping-cart"></i></a>
 					</div>
 					<!-- BARRA DE BUSQUEDA -->
-					<form class="buscador" action="login.php" method="post">
+					<form class="buscador" action="" method="post">
 						<input id="Buscador" type="text" name="buscador" value="" placeholder="¿Que buscas?">
 						<a href="#Buscador"><i class="fas fa-search"></i></a>
 					</form>
@@ -42,34 +62,59 @@
 
 
     <main class="Registros">
-      <form class="caja_formulario" action="login.php" method="post">
+      <form class="caja_formulario" action="" method="post" enctype="multipart/form-data">
         <div class="datos">
           <nav class="registrarse">
               <a>Registrarse</a>
           </nav>
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>
-            <input type="text" name="" value="" placeholder="Nombre">
+            <input type="text" name="nombre" value="<?php echo (!empty($nombre))? $nombre : "" ;  ?>" placeholder="Nombre">
+            <p> <span> <?php echo  (isset($error["nombre"]))? $error["nombre"]: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>
-            <input type="text" lastname="" value=""placeholder="Apellido">
+            <input type="text" name="apellido" value="<?php echo (!empty($apellido))? $apellido : "" ;  ?>" placeholder="Apellido">
+            <p> <span> <?php echo  (isset($error["apellido"]))? $error["apellido"]: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-at"></i>
-            <input type="mail" name="" mail="" placeholder="Email">
+            <input type="mail" name="mail" value="<?php echo (!empty($mail))? $mail : "" ;  ?>" placeholder="Email">
+            <p> <span> <?php echo  (isset($error["mail"]))? $error["mail"]: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-user-alt"></i>
-            <input type="text" usuario="" value="" placeholder="Usuario">
+            <input type="text" name="username" value="<?php echo (!empty($user))? $user : "" ;  ?>" placeholder="Nombre de Usuario"><br>
+            <p> <span> <?php echo  (isset($error["username"]))? $error["username"]: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-phone-square"></i>
-            <input type="tel" telephone="" telephone="" placeholder="Telefono">
+            <input type="tel" name="tel" value="<?php echo (!empty($tel))? $tel : "" ;  ?>"  placeholder="Telefono">
           </div>
-          <div class="boton">
-            <button type="button" name="button">Registrarse</button>
+          <div class="dato_interno">
+            <i class="fas fa-images"></i>
+            <input type="file" name="avatar">
+            <p> <span> <?php /*echo  (isset($error["size"]))? $error["size"]: ""; */?> </span> </p>
           </div>
+          <div class="dato_interno">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="contra" placeholder="Contraseña">
+            <p> <span> <?php echo  (isset($error["contra"]))? $error["contra"]: ""; ?></span> </p>
+          </div>
+          <div class="dato_interno">
+            <i class="fas fa-lock-open"></i>
+            <input type="password" name="conficontra" placeholder="Confirmar contraseña">
+            <p> <span> <?php echo (isset($error["conficontra"]))? $error["conficontra"]: ""; ?></span> </p>
+          </div>
+          <div class="dato_terminos">
+            <div class="caja-subdivisoria">
+              <input type="checkbox" name="terminos"><a>Accepta Terminos y Condiciones</a>
+              <input type="checkbox" name="recordarme" <?php echo (isset($recordarme))? "selected":"";?>><a>Recordarme</a>
+            </div>
+            <p> <span> <?php echo (isset($error["terminos"]))? $error["terminos"]: ""; ?></span> </p>
+          </div>
+
+          <button type="submit" >Registrarse</button>
         </div>
       </form>
     </main>

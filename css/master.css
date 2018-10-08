@@ -357,7 +357,7 @@ header{
 	width: 100%;
 	background: rgba(0, 0, 0, 0.2);
 	color: #fff;
-	margin-bottom: 35px; /*TODO Que es esto Si no sirve sacarlo*/
+	margin-bottom: 35px; /*TODO Que es esto Si no sirve sacarlo
 } */
 
 .product-inside:hover{
@@ -390,18 +390,54 @@ header{
 }
 .datos{
  	margin:20px;
-	flex-direction: row;
+	flex-direction: column;
  	width: 100%;
+	text-align: center;
 }
 .dato_interno{
+	display: flex;
+	flex-wrap: wrap;
  	margin-bottom: 10px;
- 	width: 100%;
+ 	width: 96%;
 }
 .dato_interno input{
  	width: 90%;
  	height: 30px;
 }
+.dato_interno span{
+	color:red;
+}
+.dato_interno p {
+	text-align: center;
+	height: 1em;
+	width:96%;
+	margin-top: 2px;
+}
+.dato_terminos{
+	display: flex;
+ 	margin-bottom: 10px;
+ 	width: 96%;
+	flex-direction: column;
+	align-content: space-between;
+	align-items: center;
+}
+.dato_terminos p {
+	text-align: center;
+	height: 1em;
+	width:96%;
+	margin-top: 2px;
+}
+.dato_terminos span{
+	color:red;
+}
+.caja_subdivisoria{
+	display:flex;
+	align-items: center;
+	width: 100%;
+}
 .registrarse{
+	width: 96%;
+	text-align: center;
 	font-family: 'Open Sans', sans-serif; /*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
 }
 .iniciar, .registrarse{
