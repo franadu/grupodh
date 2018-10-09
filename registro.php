@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php require "funciones/funciones.php";
+
  if (!empty($_POST)){
   $error=validacionRegistro($_POST);
   //$error["size"]=validacionImagen($_FILES);

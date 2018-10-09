@@ -146,7 +146,9 @@ function recopilaInfoDeCookies($datos){
 	for ($i=0; $i < count($actuales["usuario"]); $i++){
 		if ($datos["username"]===$actuales["usuario"][$i]["username"]){
 			foreach ($actuales["usuario"][$i] as $key => $value) {
-				setcookie($key,$value,time()+(60*60*24*7));
+				if ($key!=="contra"){
+					setcookie($key,$value,time()+(60*60*24*7));
+				}
 			}
 		}
 	}
