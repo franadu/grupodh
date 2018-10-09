@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <?php
   require "funciones/funciones.php";
-  
+  session_start();
   if (!empty($_POST)){
     $inicia=validacionLogin($_POST);
     if ($inicia===true){
-      recopilaInfoDeCookies($_POST);
       session_start();
+      setcookie("username",$_POST["username"],time()+(60*60));
+      recopilaInfoEnSesion($_POST);
       header("location:home.php");
       exit;
     }

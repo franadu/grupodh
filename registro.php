@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php require "funciones/funciones.php";
 
  if (!empty($_POST)){
@@ -18,11 +17,19 @@
   }
   if (!$error){/*! es verdadero $error => !no => si*/
     registrarUsuario($_POST,$_FILES);
+    if ($_POST["recordarme"]==="on"){
+      session_start();
+      setcookie("username",$_POST["username"],time()+(60*60));
+      recopilaInfoEnSesion($_POST);
+      header("location:home.php");
+      exit;
+  }
     header("location:login.php");
     exit;
   }
  }
  ?>
+ <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">

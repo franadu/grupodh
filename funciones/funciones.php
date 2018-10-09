@@ -145,14 +145,14 @@ function validacionLogin($datos){
 	return $inicia;
 }
 
-function recopilaInfoDeCookies($datos){
+function recopilaInfoEnSesion($datos){
 	$actuales=file_get_contents("usuarios/json.txt");
 	$actuales=json_decode($actuales,true);
 	for ($i=0; $i < count($actuales["usuario"]); $i++){
 		if ($datos["username"]===$actuales["usuario"][$i]["username"]){
 			foreach ($actuales["usuario"][$i] as $key => $value) {
 				if ($key!=="contra"){
-					setcookie($key,$value,time()+(60*60*24*7));
+					$_SESSION["$key"]=$value;
 				}
 			}
 		}
@@ -161,7 +161,7 @@ function recopilaInfoDeCookies($datos){
 
 function logout(){
 	session_start();
-
+	unset($_COKIE["username"]);
 	session_destroy();
 }
 ?>

@@ -1,7 +1,10 @@
 
 <?php
-if (!empty($_COOKIE)){
+require "funciones/funciones.php";
+if (isset($_COOKIE["username"])){
 	session_start();
+} else {
+	header("location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -20,7 +23,6 @@ if (!empty($_COOKIE)){
 	<body class="cuerpohome">
 			<!-- CABEZERA -->
 		<header class="cabezera">
-			<?php var_dump($_COOKIE); ?>
 			<!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
 			<div class="logo">
 				<a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
@@ -41,9 +43,9 @@ if (!empty($_COOKIE)){
 					<!-- Barra de Registro-->
 					<div class="login_bar">
 						<?php
-						if (empty($_COOKIE)){
+						if (empty($_SESSION)){
 						echo '<a class="log_in" href="registro.php"> Registrarse|</a> <a href="login.php" class="log_in">Login<a> <a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>'; } else {
-						echo '<a class="log_in" href="#">'.$_COOKIE["username"].' '.' <i class="fas fa-sign-out-alt"></i> </a>';
+						echo '<abbr title="LogOut"><a class="log_in" href="destroysession.php">'.$_SESSION["username"].' '.' <i class="fas fa-sign-out-alt"></i> </a></abbr>';
 						}
 						?>
 					</div>
