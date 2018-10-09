@@ -45,7 +45,7 @@ if (isset($_COOKIE["username"])){
 						<?php
 						if (empty($_SESSION)){
 						echo '<a class="log_in" href="registro.php"> Registrarse|</a> <a href="login.php" class="log_in">Login<a> <a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>'; } else {
-						echo '<abbr title="LogOut"><a class="log_in" href="destroysession.php">'.$_SESSION["username"].' '.' <i class="fas fa-sign-out-alt"></i> </a></abbr>';
+						echo '<abbr title="LogOut"><a class="log_in" href="destroysession.php">'.$_SESSION["username"].'<img src=" '.$_SESSION["avatar"].'" style="border-bottom-left-radius: 50%;  border-bottom-right-radius: 50%; border-top-left-radius: 50%; width:50%;"> <i class="fas fa-sign-out-alt"></i> </a></abbr>';
 						}
 						?>
 					</div>
