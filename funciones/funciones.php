@@ -34,7 +34,7 @@ function validacionRegistro($datos){
 		}
 	}
 
-	if (strlen(trim($datos["contra"])<8)) {
+	if (strlen(trim($datos["contra"]))<8) {
 		$errores["contra"]="*La contraseña es muy corta";
 	} if ($datos["conficontra"]!==$datos["contra"]){
 		$errores["conficontra"]="*No replico bien la Contraseña";
@@ -58,7 +58,7 @@ function validacionImagen($imagen){
 }
 
 function registrarUsuario($datos,$imagenes){
-	/*TODO Primer Paso a realizar Guardar Info general, guardar Imagen y Guardar direccion de imagen*/
+	/*TOD Primer Paso a realizar Guardar Info general, guardar Imagen y Guardar direccion de imagen*/
 
 	/* Hasheo la contraseña*/
 	$datos["contra"]=password_hash($datos["contra"],PASSWORD_DEFAULT);
