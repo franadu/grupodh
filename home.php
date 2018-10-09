@@ -1,3 +1,12 @@
+
+<?php
+if (isset($_COOKIE["usuario"])){
+	session_start();
+	var_dump($_COOKIE);
+	var_dump($_SESSION);
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>

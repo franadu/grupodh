@@ -110,7 +110,7 @@ function registrarUsuario($datos,$imagenes){
 	$json["usuario"][] =$datos;
 
 	/*Transformo el usuario en string*/
-	$json=json_encode($json);
+	$json=json_encode($json,true);
 
 	/*Guardo la info en el archivo correspondiente*/
 	$archivo="usuarios/json.txt";
@@ -121,20 +121,31 @@ function validacionLogin($datos){
 	/*Consigo el contenido*/
 	$actuales=file_get_contents("usuarios/json.txt");
 	/*Transformo el json en un array*/
-	$actuales=json_decode($actuales);
+	$actuales=json_decode($actuales,true);
 	/*Comienzo una variable booleana para decidir que sucede luego
 	si retorna falsa no puede comezar la sessión de lo contrario se inicia sessión */
+
 	$inicia="No puso bien su contraseña o su nombre de usuario";
 	/*Para pasarpor todos los usuarios que hay y comparar con el usuario puesto*/
+
 	for ($i=0; $i < count($actuales["usuario"]); $i++) {
 		if ($actuales["usuario"][$i]["username"]===$datos["username"]){
 			/*Para verificar si la contraseña se puso bien*/
-			if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"]){
+			if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"])){
 				$inicia=true;
+				setcookie("usuario",$datos["username"],time()+10);
 				return $inicia;
 			}
 		}
 	}
 	return $inicia;
+}
+
+function recopilaInfoDeSession($datos){
+	$actuales=file_get_contents("usuarios/json.txt");
+	$actuales=json_decode($actuales,true);
+	for ($i=0; $i < count($actuales["usuario"]); $i++){
+		if ($datos[""])
+	}
 }
 ?>

@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+  require "funciones/funciones.php";
+  if (!empty($_POST)){
+    $error=validacionLogin($_POST);
+    if ($error===true){
+      header("location:home.php");
+      sessionStart();
+      exit;
+    }
+  }
+?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -12,6 +23,9 @@
   <body>
     <!-- CABEZERA -->
     <header class="cabezera">
+      <?php
+
+    ?>
       <!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
       <div class="logo">
         <a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
@@ -39,7 +53,7 @@
 			</nav><!-- MENU DE NAVEGACION -->
     </header><!-- CABEZERA -->
     <main>
-      <form class="caja_formulario" action="index.php" method="post">
+      <form class="caja_formulario" action="" method="post">
 
         <div class="datos">
           <nav class="iniciar">
@@ -47,19 +61,16 @@
           </nav>
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>
-            <input type="text" name="" value="" placeholder="Nombre">
-          </div>
-          <div class="dato_interno">
-            <i class="fas fa-at"></i>
-            <input type="mail" name="" mail="" placeholder="Email">
+            <input type="text" name="username" value="<?php if (isset($_POST["username"])){echo $_POST["username"];} ?>" placeholder="Nombre de Usuario">
+            <p> <span> <?php echo  (isset($error))? $error: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-key"></i>
-            <input type="password" name="" password="" placeholder="Password">
+            <input type="password" name="contra" password="" placeholder="Contraseña">
+            <p> <span> <?php echo  (isset($error))? $error: ""; ?></span> </p>
           </div>
           <div class="boton">
-            <button type="button" name="button">Iniciar Seción</button>
-            <button type="reset" name="button">Borrar todo</button>
+            <button type="submit">Iniciar Seción</button>
             <a href="registro.php">¿Desea registrarse?</a>
           </div>
         </div>
