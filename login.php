@@ -4,8 +4,9 @@
   if (!empty($_POST)){
     $error=validacionLogin($_POST);
     if ($error===true){
+      recopilaInfoDeCookies($_POST);
+      session_start();
       header("location:home.php");
-      sessionStart();
       exit;
     }
   }

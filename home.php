@@ -1,10 +1,7 @@
 
 <?php
-if (isset($_COOKIE["usuario"])){
+if (!empty($_COOKIE)){
 	session_start();
-	var_dump($_COOKIE);
-	var_dump($_SESSION);
-
 }
 ?>
 <!DOCTYPE html>
@@ -42,9 +39,12 @@ if (isset($_COOKIE["usuario"])){
 					</form>
 					<!-- Barra de Registro-->
 					<div class="login_bar">
-						<a class="log_in" href="registro.php"> Registrarse|</a>
-						<a href="login.php" class="log_in">Login<a>
-						<a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>
+						<?php
+						if (empty($_COOKIE)){
+						echo '<a class="log_in" href="registro.php"> Registrarse|</a> <a href="login.php" class="log_in">Login<a> <a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>'; } else {
+						echo '<a class="log_in" href="#">'.$_COOKIE["username"].' '.' <i class="fas fa-sign-out-alt"></i> </a>';
+						}
+						?>
 					</div>
 				</div>
 			</nav><!-- MENU DE NAVEGACION -->

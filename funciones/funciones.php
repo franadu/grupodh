@@ -133,7 +133,6 @@ function validacionLogin($datos){
 			/*Para verificar si la contraseña se puso bien*/
 			if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"])){
 				$inicia=true;
-				setcookie("usuario",$datos["username"],time()+10);
 				return $inicia;
 			}
 		}
@@ -141,11 +140,21 @@ function validacionLogin($datos){
 	return $inicia;
 }
 
-function recopilaInfoDeSession($datos){
+function recopilaInfoDeCookies($datos){
 	$actuales=file_get_contents("usuarios/json.txt");
 	$actuales=json_decode($actuales,true);
 	for ($i=0; $i < count($actuales["usuario"]); $i++){
-		if ($datos[""])
+		if ($datos["username"]===$actuales["usuario"][$i]["username"]){
+			foreach ($actuales["usuario"][$i] as $key => $value) {
+				setcookie($key,$value,time()+(60*60*24*7));
+			}
+		}
 	}
+}
+
+function logout(){
+	session_start();
+
+	session_destroy();
 }
 ?>
