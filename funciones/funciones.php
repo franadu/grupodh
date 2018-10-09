@@ -25,10 +25,12 @@ function validacionRegistro($datos){
 	} else {
 		if (file_exists("usuarios/json.txt")){
 			$actuales=file_get_contents("usuarios/json.txt");
-			$actuales=json_decode($actuales,true);
-			for ($i=0; $i <count($actuales["usuario"]) ; $i++) {
-				if ($datos["username"]===$actuales["usuario"][$i]["username"]){
-					$errores["username"]="El nombre de Usuario ya existe";
+			if ($actuales!==""){
+				$actuales=json_decode($actuales,true);
+				for ($i=0; $i <count($actuales["usuario"]) ; $i++) {
+					if ($datos["username"]===$actuales["usuario"][$i]["username"]){
+						$errores["username"]="El nombre de Usuario ya existe";
+					}
 				}
 			}
 		}
@@ -47,14 +49,11 @@ function validacionRegistro($datos){
 	return $errores;
 }
 
-
-//TODO cuando hago el validar imagen me da que convierto un array en string
 function validacionImagen($imagen){
-	$errores["size"]="";
-if ($imagen["avatar"]["size"]>(5000*1024)){
+	if ($imagen["avatar"]["size"]>(5000*1024)){
 		$errores["size"]="La Imagen es muy grande";
+		return $errores["size"];
 	}
-	return $errores["size"];
 }
 
 function registrarUsuario($datos,$imagenes){
@@ -80,15 +79,17 @@ function registrarUsuario($datos,$imagenes){
 
 	/*Busco info*/
 	$actuales=file_get_contents("usuarios/json.txt");
-	$i=0;
-	/*Si actuales esta parte no la hago esta vacio $i existe y es igual a 0*/
+	/*Si actuales ésta, esta parte no la hago esta vacio $i existe y es igual a 0*/
+	echo $actuales."<br>";
 	if ($actuales!==""){
 		$actuales=json_decode($actuales,true);
-		for (; $i <count($actuales["usuario"]) ; $i++) {
+		for ( $i=0; $i <count($actuales["usuario"]) ; $i++) {
 			if ($datos["username"]===$actuales["usuario"][$i]["username"]){
 				$target_dir="usuarios/uploads/$i/";
 			}
 		}
+	} else {
+		$i=0;
 	}
 	/*Si no esta seteada direccion porque no hubo un usuario con el nombre*/
 	if (!isset($target_dir)){
@@ -106,7 +107,11 @@ function registrarUsuario($datos,$imagenes){
 	/*Copio la info en datos*/
 	$datos["avatar"]=$target_file;
 
-	/*Creo el usuario*/
+	/**/
+	if ($actuales!==""){
+	$json=$actuales;
+	}
+	/*Creo el nuevo usuario*/
 	$json["usuario"][] =$datos;
 
 	/*Transformo el usuario en string*/

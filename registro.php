@@ -3,8 +3,10 @@
 
  if (!empty($_POST)){
   $error=validacionRegistro($_POST);
-  if (isset($_FILES)){
+
+  if (!empty($_FILES)){/*!Esta vacio Files => !True => False*/
     $error["size"]=validacionImagen($_FILES);
+    if ($error["size"]==NULL){unset($error["size"]);}
   }
   $nombre=$_POST["nombre"];
   $apellido=$_POST["apellido"];
@@ -14,7 +16,7 @@
   if (isset($_POST["recordarme"])){
     $recordarme=$_POST["recordarme"];
   }
-  if (!$error){
+  if (!$error){/*! es verdadero $error => !no => si*/
     registrarUsuario($_POST,$_FILES);
     header("location:login.php");
     exit;
@@ -35,7 +37,7 @@
   <body>
     <!-- CABEZERA -->
     <header class="cabezera">
-      <?php  var_dump($_FILES); var_dump($_POST);?>
+      <?php ?>
       <!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
       <div class="logo">
         <a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>
