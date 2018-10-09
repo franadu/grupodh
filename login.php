@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
   require "funciones/funciones.php";
+  
   if (!empty($_POST)){
     $inicia=validacionLogin($_POST);
     if ($inicia===true){
