@@ -2,8 +2,8 @@
 <?php
   require "funciones/funciones.php";
   if (!empty($_POST)){
-    $error=validacionLogin($_POST);
-    if ($error===true){
+    $inicia=validacionLogin($_POST);
+    if ($inicia===true){
       recopilaInfoDeCookies($_POST);
       session_start();
       header("location:home.php");
@@ -73,6 +73,7 @@
           <div class="boton">
             <button type="submit">Iniciar Seción</button>
             <a href="registro.php">¿Desea registrarse?</a>
+            <!--<a href=""-->
           </div>
         </div>
       </form>
