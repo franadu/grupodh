@@ -143,17 +143,6 @@
       <!-- ESTE ES EL MENU LATERAL SOLO VISIBLE EN DESKTOP -->
       <aside class="menu_lateral">
           <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="#">Notebooks</a></li>
-            <li><a href="#">Smartphones</a></li>
-            <li><a href="#">Componentes</a></li>
-          </ul>
-      </aside>
-    </div>
-      <!-- AUI TERMINA LA CAJA CONTENEDORA DE LOS ARTICULOS -->
-      <!-- ESTE ES EL MENU LATERAL SOLO VISIBLE EN DESKTOP -->
-      <aside class="menu_lateral">
-          <ul>
             <li><a href="home.php">Home</a></li>
             <li><a href="#">Notebooks</a></li>
             <li><a href="#">Smartphones</a></li>
