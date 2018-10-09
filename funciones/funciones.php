@@ -50,11 +50,11 @@ function validacionRegistro($datos){
 
 //TODO cuando hago el validar imagen me da que convierto un array en string
 function validacionImagen($imagen){
-	$errores=[];
-	if ($imagen["avatar"]["size"]>(5000*1024)){
+	$errores["size"]="";
+if ($imagen["avatar"]["size"]>(5000*1024)){
 		$errores["size"]="La Imagen es muy grande";
 	}
-	return $errores;
+	return $errores["size"];
 }
 
 function registrarUsuario($datos,$imagenes){

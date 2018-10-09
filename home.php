@@ -20,6 +20,7 @@ if (!empty($_COOKIE)){
 	<body class="cuerpohome">
 			<!-- CABEZERA -->
 		<header class="cabezera">
+			<?php var_dump($_COOKIE); ?>
 			<!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
 			<div class="logo">
 				<a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>

@@ -3,7 +3,9 @@
 
  if (!empty($_POST)){
   $error=validacionRegistro($_POST);
-  //$error["size"]=validacionImagen($_FILES);
+  if (isset($_FILES)){
+    $error["size"]=validacionImagen($_FILES);
+  }
   $nombre=$_POST["nombre"];
   $apellido=$_POST["apellido"];
   $mail=$_POST["mail"];
@@ -95,7 +97,7 @@
           <div class="dato_interno">
             <i class="fas fa-images"></i>
             <input type="file" name="avatar">
-            <p> <span> <?php /*echo  (isset($error["size"]))? $error["size"]: ""; */?> </span> </p>
+            <p> <span> <?php echo  (isset($error["size"]))? $error["size"]: ""; ?> </span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-lock"></i>
