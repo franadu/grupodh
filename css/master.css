@@ -50,6 +50,7 @@ table {
 a{
   text-decoration: none;
   color: #000;
+	font-family: 'Open Sans', sans-serif;
 }
 a:hover {
 	text-decoration: none;
@@ -76,18 +77,15 @@ main{
 button{
 	border-radius: 5px;
 }
-h1 {	font-size: 4em;font-family: 'Merriweather', serif;}
-h2 {	font-size: 3em;font-family: 'Merriweather', serif;}
+h1 {	text-align: center;	background-color:grey;  padding: 20px; width:100%; margin: 0 auto;font-size: 3em; font-family: 'Merriweather', serif;}
+h2 {	font-size: 2.5em;font-family: 'Merriweather', serif;}
 h3 {	font-size: 2em;font-family: 'Merriweather', serif;}
 h4 {	font-size: 1.8em;font-family: 'Merriweather', serif;}
-h1{
-	display: flex;
- 	justify-content: center;
- 	background-color:grey;
-	padding: 20px;
- 	width:100%;
- 	margin: 0 auto;
-}​​
+
+p{
+	font-size: 1.6em;
+	font-family: 'Open Sans', sans-serif;
+}
 
 /* CABEZERA */
 .cabezera{
@@ -245,11 +243,7 @@ header{
 	padding-left: 10px;
 	padding-right: 10px;
 }
-#principal_pregunta{
-	font-size: 30px; /*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
-	font-family: 'Merriweather', serif;
-	background-color: inherit;
-}
+
 .main_preguntas{
 	margin: 0 auto;
 	display: flex;
@@ -288,9 +282,6 @@ header{
 .questions li:hover{ /*CAMBIO DE COLOR SOBRE EL MOUSE EN PREGUNTAS*/
 	background: #9B9B95;
 }
-.questions h2{
-	font-family: 'Merriweather', serif;/*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
-}
 .questions a{
 	font-size: 20px;
 }
@@ -299,14 +290,9 @@ header{
 	padding: 20px;
 }
 .answers h2{
-	font-size: 20px;
 	margin-bottom: 15px;
-	font-family: 'Merriweather', serif;
 }
-.answers p{/*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
-	font-size: 16px;
-	font-family: 'Open Sans', sans-serif;
-}
+
 .answers article{
 	margin-bottom: 10px;
 }/*AQUI TERMINA EL CSS DEL MAIN*/
@@ -314,11 +300,13 @@ header{
 /* ESTE ES EL CSS DE LA PAGINA DE NOTEBOOKS */
 #notebooks{
 	background-color: inherit;
-	font-size: 5em; /*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
+	font-size: 5em;
 }
+
 .articles{
 	background-image: none;
 }
+
 .product{
 	width: 100%;
 	display: flex;
@@ -349,16 +337,6 @@ header{
   -webkit-transition : scale(1.1);   /* Chrome - Safari */
   -o-transition : scale(1.1);			/* Opera */
 }
-   /*CAJA DE ADENTRO QUE CONTINE EL PRECIO Y TITULO DEL PRODUCTO*/
-/* .product-inside{
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-	width: 100%;
-	background: rgba(0, 0, 0, 0.2);
-	color: #fff;
-	margin-bottom: 35px; /*TODO Que es esto Si no sirve sacarlo
-} */
 
 .product-inside:hover{
 	background: rgba(0, 0, 0, 0.5);
@@ -438,13 +416,12 @@ header{
 .registrarse{
 	width: 96%;
 	text-align: center;
-	font-family: 'Open Sans', sans-serif; /*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
 }
+
 .iniciar, .registrarse{
  	margin-bottom: 20px;
 }
 .iniciar a, .registrarse a{
-	font-family: 'Open Sans', sans-serif;/*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
  	font-size: 2em;
  	color: #fff;
 }
@@ -486,14 +463,12 @@ header{
 	text-align: center;
 }
 .pie_pagina a{
-	font-size: 12px; /*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
+	font-size: 1.2em;
 	margin: 5px;
 	text-align: center;
-	color: 444;
+	color: #444;
 }
-a, p{
-	font-family: 'Open Sans', sans-serif; /*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
-}
+
 /*-------------------- INICIO MEDIA QUERY -----------------*/
 	/*-------------Arranca REsponsive para Tablets------------------*/
 @media (min-width: 768px) {
@@ -540,11 +515,9 @@ a, p{
 	.questions a{
 		font-size: 2.5em;
 	}
-	.answers h2{
-		font-size: 2.5em; /*TODO cambiar o sacar family y font dejar que lo tome Arriba (DOnde Arranca Su media Query)*/
-	}
+
 	.answers p{
-		font-size: 1.6em; / /*TODO cambiar o sacar family y font dejar que lo tome Arriba (DOnde Arranca Su media Query)*/
+		font-size: 1.6em;
 	}
 	/*Finaliza Responsive Tablets para Main de preguntas.hmtl*/
 
@@ -559,7 +532,7 @@ a, p{
 
 
 
-	/*Finaliza Responsive Tablets para Main de ecommerce-home.html*/
+	/*Finaliza Responsive Tablets para Main de home.html*/
 	/*Responsive para registros y login*/
 	.dato_interno{
 		width: 95%;
@@ -568,7 +541,7 @@ a, p{
 	}
 
 	.dato_interno i{
-	font-size: 30px;  /*TODO cambiar o sacar family y font dejar que lo tome Arriba (DOnde Arranca Su media Query)*/
+	font-size: 3em;
 	margin-right: 20px;
 	}
 
@@ -619,7 +592,7 @@ a, p{
 
 	/*Responsive General para Pie de ¨Pagina*/
 	.pie_pagina a {
-		font-size: 1.5em; /*TODO cambiar o sacar family y font dejar que lo tome Arriba (DOnde Arranca Su media Query)*/
+		font-size: 1.5em;
 		font-family: 'Merriweather', serif;
 	}
 

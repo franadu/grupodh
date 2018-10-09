@@ -60,7 +60,7 @@
 
         <div class="datos">
           <nav class="iniciar">
-            <a>Iniciar Seción</a>
+            <h1>Iniciar Seción</h1>
           </nav>
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>

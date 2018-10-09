@@ -77,7 +77,7 @@
       <form class="caja_formulario" action="" method="post" enctype="multipart/form-data">
         <div class="datos">
           <nav class="registrarse">
-              <a>Registrarse</a>
+              <h1>Registrarse</h1>
           </nav>
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>

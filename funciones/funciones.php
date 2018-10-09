@@ -161,7 +161,7 @@ function recopilaInfoEnSesion($datos){
 
 function logout(){
 	session_start();
-	unset($_COKIE["username"]);
+	setcookie("username",$_COOKIE["username"]);
 	session_destroy();
 }
 ?>
