@@ -77,10 +77,26 @@ main{
 button{
 	border-radius: 5px;
 }
-h1 {	text-align: center;	background-color:grey;  padding: 20px; width:100%; margin: 0 auto;font-size: 3em; font-family: 'Merriweather', serif;}
-h2 {	font-size: 2.5em;font-family: 'Merriweather', serif;}
-h3 {	font-size: 2em;font-family: 'Merriweather', serif;}
-h4 {	font-size: 1.8em;font-family: 'Merriweather', serif;}
+h1 {
+	text-align: center;
+	background-color:grey;
+	padding: 20px;
+	width:100%;
+	margin: 0 auto;
+	font-size: 3em;
+	font-family: 'Merriweather', serif;}
+h2 {
+	font-size: 2.5em
+	font-family: 'Merriweather', serif;
+}
+h3 {
+	font-size: 2em;
+	font-family: 'Merriweather', serif;
+}
+h4 {
+	font-size: 1.8em;
+	font-family: 'Merriweather', serif;
+}
 
 p{
 	font-size: 1.6em;
@@ -203,34 +219,104 @@ header{
 
 /*Arranca Cuerpo del Home Mobile*/
 
-.Home {	margin: 10 auto; border: 4px solid black; margin:0; display: flex; flex-direction: column; align-items: center;}
-.Home .row h1 {	width:100%;	 text-align: center; margin: 10px 0;} /*Centra el titutlo en la pagina*/
+.Home {
+	margin: 10 auto;
+	border: 4px solid black;
+	margin:0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.Home .row h1 {
+	width:100%;
+	text-align: center;
+	margin: 10px 0;
+	} /*Centra el titutlo en la pagina*/
+
 
 /*Secciones Propagandas y Categorias en general*/
-.Home .propaganda-categorias {	width: 98%; padding:10px; border: 2px solid Grey; border-radius:5px;  }
+.Home .propaganda-categorias {
+	width: 98%;
+	padding:10px;
+	border: 2px solid Grey;
+
+	border-radius:5px;
+}
 
 /*Arranca Seccion Propaganda*/
-.Propaganda article {	width:98%; padding:10px;position: relative; overflow:visible; }
-.Propaganda article img { width:100%;margin: 0 auto;}
-.Propaganda article p { width: 100%; position: absolute; background-color: rgba(0,0,0,0.5); bottom:47.5%; text-align: center; color:white;}
-.Propaganda article h4 {	position:absolute; right:0; width:25%;}
-.p2, .p3 {	display: none;}/*Por el momento las saco*/
+.Propaganda article {
+	width:98%;
+	padding:10px;
+	position: relative;
+	overflow:visible;
+}
+.Propaganda article img {
+	width:100%;
+
+	margin: 0 auto;
+}
+.Propaganda article p {
+	width: 100%;
+	position: absolute;
+	background-color: rgba(0,0,0,0.5);
+	bottom:47.5%;
+	text-align: center;
+	color:white;
+}
+.Propaganda article h4 {
+	position:absolute;
+	right:0;
+	width:25%;
+}
+
+.p2, .p3 {
+	display: none;
+}/*Por el momento las saco*/
 /*Finaliza seccion Propagada*/
 
 /*Arranca Seccion Categorias*/
-.Categorias { width: 100%;}
-.Categorias h3 {  width:100%;margin-bottom:3px; margin-top:3px;}
-.Categorias h3 a { border: 1px solid black; width:100%;}
-.Categorias article {	display:flex; flex-direction: row;}
-.Categorias article .Articulo {width:48%; position:relative; margin:0; overflow: visible; border: 2px solid #f2f2f2; border-radius: 3px;display: flex; flex-direction: column;align-items: center;}
-.Categorias article .Articulo img { width:100%;}
-.Categorias article .Articulo p {	position:absolute;bottom: 0; color:#fff; background-color: rgba(0,0,0,0.5); width:98%; text-align: center; margin-bottom:5px;}
+.Categorias {
+	width: 100%;
+}
+.Categorias h3 {
+	width:100%;margin-bottom:3px; margin-top:3px;
+}
+.Categorias h3 a {
+	border: 1px solid black; width:100%;
+}
+.Categorias article {
+	display:flex; flex-direction: row;
+}
+.Categorias article .Articulo {
+	width:48%;
+	position:relative; margin:0;
+	overflow: visible;
+	border: 2px solid #f2f2f2;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;align-items: center;
+}
+.Categorias article .Articulo img {
+	width:100%;
+}
+.Categorias article .Articulo p {
+	position:absolute;bottom: 0;
+	color:#fff;
+	background-color: rgba(0,0,0,0.5);
+	width:98%;
+	text-align: center;
+	margin-bottom:5px;
+
+}
 
 /*Finaliza seccion Categorias*/
-/*Finaliza seccion Propagandas y Categorias*/
+/*Finaliza seccio
+n Propagandas y Categorias*/
 
 /*Arranca seccion Navcategorias*/
-.navcategorias { display:none;}
+.navcategorias {
+	display:none;
+}
 
 
 /*Termin el Cuerpo del home Mobile*/
@@ -523,13 +609,36 @@ header{
 
 
 	/*Inicia Responsive Tablets para Main de ecommerce-home.html*/
-	.Home {	 margin:0 auto; display:flex; flex-direction: row;align-items: flex-start; flex-wrap:wrap; position:relative;}
-	.Home .propaganda-categorias { width: 66.66666667%;  }
-	.navcategorias  {	 width: 33%; margin:0 0 0 0;padding:10px; border: 2px solid Grey; border-radius:5px; display: block; position:absolute; right:0;top: 80px; }
-	.navcategorias h3 {	width: 20.33%; margin:0; text-align: right;}
-	.navcategorias ul {	width:20.33%;margin:0;}
-
-
+	.Home {
+		margin:0 auto;
+		display:flex;
+		flex-direction: row;
+		align-items: flex-start;
+		flex-wrap:wrap;
+		position:relative;
+	}
+	.Home .propaganda-categorias{
+		width: 66.66666667%;
+	}
+	.navcategorias{
+		width: 33%;
+		margin:0 0 0 0;
+		padding:10px;
+		border: 2px solid Grey;
+		border-radius:5px;
+		display: block;
+		position:absolute;
+		right:0;top: 80px;
+	}
+	.navcategorias h3{
+		width: 20.33%;
+		margin:0;
+		text-align: right;
+	}
+	.navcategorias ul{
+		width:20.33%;
+		margin:0;
+	}
 
 
 	/*Finaliza Responsive Tablets para Main de home.html*/
@@ -664,6 +773,11 @@ header{
 	/* -----------TERMINA EL RESPONSIVE DE NOTEBOOK -----------*/
 
 	/*Arranca responsive Home Desktop*/
-	.home { margin: 0 auto; flex-direction: column;}
-	.home h1 {  width:100%;	}
+	.home {
+		margin: 0 auto;
+		flex-direction: column;
+	}
+	.home h1 {  
+		width:100%;
+	}
 }
