@@ -65,7 +65,7 @@ a:hover {
 body{/*Agrego para poder manejar todo con em*/
 	font-size: 10px;
 	min-width: 330px;
-	background-color: #F7F7F0;width:100%;	background-image: url(../images/carta.png);
+	background-color: #F7F7F0;width:100%;
 }
 
 main{
