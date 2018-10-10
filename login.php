@@ -64,12 +64,12 @@
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>
             <input type="text" name="username" value="<?php if (isset($_POST["username"])){echo $_POST["username"];} ?>" placeholder="Nombre de Usuario">
-            <p> <span> <?php echo  (isset($error))? $error: ""; ?></span> </p>
+            <p> <span> <?php echo  (isset($inicia))? $inicia: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-key"></i>
             <input type="password" name="contra" password="" placeholder="Contraseña">
-            <p> <span> <?php echo  (isset($error))? $error: ""; ?></span> </p>
+            <p> <span> <?php echo  (isset($inicia))? $inicia: ""; ?></span> </p>
           </div>
           <div class="boton">
             <button type="submit">Iniciar Seción</button>
