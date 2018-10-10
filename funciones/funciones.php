@@ -24,7 +24,7 @@ function validacionRegistro($datos){
 		$errores["username"]="*No ingreso un nombre de usuario valido";
 	} else {
 		if (file_exists("usuarios/json.txt")){
-			$actuales=file_get_contents("usuarios/json.txt");
+			$actuales=file_get_contents("usuarios/json.json");
 			if ($actuales!==""){
 				$actuales=json_decode($actuales,true);
 				for ($i=0; $i <count($actuales["usuario"]) ; $i++) {
@@ -71,14 +71,14 @@ function registrarUsuario($datos,$imagenes){
 		mkdir("usuarios/");
 	}
 	/*Existe el archivo json*/
-	if (!file_exists("usuarios/json.txt")){
+	if (!file_exists("usuarios/json.json")){
 		/*no Existe entonces lo creo*/
-	$archivo=fopen("usuarios/json.txt","w+");
+	$archivo=fopen("usuarios/json.json","w+");
 	fclose($archivo);
 	}
 
 	/*Busco info*/
-	$actuales=file_get_contents("usuarios/json.txt");
+	$actuales=file_get_contents("usuarios/json.json");
 	/*Si actuales ésta, esta parte no la hago esta vacio $i existe y es igual a 0*/
 	echo $actuales."<br>";
 	if ($actuales!==""){
@@ -118,13 +118,13 @@ function registrarUsuario($datos,$imagenes){
 	$json=json_encode($json,true);
 
 	/*Guardo la info en el archivo correspondiente*/
-	$archivo="usuarios/json.txt";
+	$archivo="usuarios/json.json";
 	file_put_contents($archivo,$json);
 }
 
 function validacionLogin($datos){
 	/*Consigo el contenido*/
-	$actuales=file_get_contents("usuarios/json.txt");
+	$actuales=file_get_contents("usuarios/json.json");
 	/*Transformo el json en un array*/
 	$actuales=json_decode($actuales,true);
 	/*Comienzo una variable booleana para decidir que sucede luego
@@ -146,7 +146,7 @@ function validacionLogin($datos){
 }
 
 function recopilaInfoEnSesion($datos){
-	$actuales=file_get_contents("usuarios/json.txt");
+	$actuales=file_get_contents("usuarios/json.json");
 	$actuales=json_decode($actuales,true);
 	for ($i=0; $i < count($actuales["usuario"]); $i++){
 		if ($datos["username"]===$actuales["usuario"][$i]["username"]){
