@@ -144,7 +144,7 @@
       <aside class="menu_lateral">
           <ul>
             <li><a href="home.php">Home</a></li>
-            <li><a href="#">Notebooks</a></li>
+            <li><a href="notebooks.php">Notebooks</a></li>
             <li><a href="#">Smartphones</a></li>
             <li><a href="#">Componentes</a></li>
           </ul>

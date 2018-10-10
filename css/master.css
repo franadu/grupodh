@@ -779,8 +779,9 @@ n Propagandas y Categorias*/
 		text-align: center;
 		width: 100%;
 		background: rgba(0, 0, 0, 0.2);
-		color: #fff;
-		margin-bottom: 35px;
+		color: #000;
+		margin-bottom: 0px;
+		padding: 2px;-
 	}
 
 	.menu_lateral{
