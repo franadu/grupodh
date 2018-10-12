@@ -7,16 +7,13 @@ if (isset($_COOKIE["username"])){
 } else {
 	header("location:login.php");
 }
-var_dump($_SESSION["avatar"]);
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css
-		/bootstrap.min.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./images/Android_O_Preview_Logo.png">
 		<link rel="stylesheet" href="./css/master.css">
@@ -54,68 +51,133 @@ var_dump($_SESSION["avatar"]);
 				</div>
 			</nav><!-- MENU DE NAVEGACION -->
 		</header><!-- CABEZERA -->
-		<main class="Home">
-			<h1>Mis Productos</h1>
-			<div class="propaganda-categorias">
-				<section class="Propaganda"><!--Carretel para propagandas propias o Externas-->
-					<h3>Descuentos Rebajas!!!</h3>
-					<article class="p1">
-						<h4>Descuento</h4>
-						<img src="./images/conjunto_electrodomesticos.jpg" alt="">
-						<p>Nombre propaganda</p>
-					</article>
-					<article class="p2">
-						<h4>Descuento</h4>
-						<img src="./images/notebook4.webp" alt="">
-						<p>nombre propaganda</p>
 
-					</article>
-					<article class="p3">
-						<h4>Descuento</h4>
-						<img src="./images/Cubiertas.jpg" alt="">
-						<p>Nombre propaganda</p>
-					</article>
-				</section>
-				<section class="Categorias"><!--Todos los articulos disponibles del comercio-->
-					<h3> <a href="notebooks.php"> Notebooks</a></h3>
-					<article class="Cat1" id="Cat1">
-						<div class="Articulo">
-							<img src="./images/notebook4.webp" alt="">
-							<p>Articulo 1</p>
-						</div>
-						<div class="Articulo">
-							<img src="./images/notebook4.webp" alt="">
-							<p>Articulo 2</p>
-						</div>
-					</article>
-					<h3> <a href="#"> Parlantes, Equipos de Audio</a></h3>
-					<article class="Cat2" id="Cat2">
-						<div class="Articulo">
-							<img src="./images/Parlantes.jpeg" alt="">
-							<p>Articulo 1</p>
-						</div>
-						<div class="Articulo">
-							<img src="./images/equipos-de-sonido.jpeg" alt="">
-							<p>Articulo 2</p>
-						</div>
-					</article>
-					<h3> <a href="#"> Otra Categoria</a></h3>
-					<article class="Cat3" id="Cat3">
+		<!-- .............ESTE ES EL BANNER................ -->
+		<img class="principal_image" src="images/Intel-Core-X-i5-i7-i9.jpg" alt="banner_principal">
 
-						<p>Articulo 3</p>
-					</article>
-				</section>
+		<main>
+			<h1 class="h1_home">Ofertas Para ti</h1>
+			<!-- ......CONTAINER DEL HOME......... -->
+			<div	 class="container_home">
+				<!-- .......CONTAINER DE LOS PRODUCTOS.... -->
+				<div class="containerHomeProducts">
+
+					<section class="home_products">
+
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+					</section>
+
+					<h2 class="home_titles">Lo mas destacado</h2>
+
+					<section class="home_products">
+						<article class="home_offers">
+
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+
+						<article class="home_offers">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+
+						<article class="home_offers">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+
+					</section>
+
+					<h2 class="home_titles">Placas de Videos</h2>
+
+					<section class="home_products">
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+						<article class="home_article">
+							<img src="images/placaVideo/msi-radeon-rx-580-armor8gb.webp" alt="">
+							<div class="home_product_inside">
+	              <h3>$10.999</h3>
+	              <h4>Notebook Asus Vivobook</h4>
+	            </div>
+						</article>
+					</section>
+
+				</div>
+
+				<!-- .......CATEGORIAS........ -->
+				<nav class="home_categories">
+						<ul>
+	            <li><a href="home.php">Home</a></li>
+	            <li><a href="notebooks.php">Notebooks</a></li>
+	            <li><a href="procesadores.php">Procesadores</a></li>
+	            <li><a href="#">Placas de Video</a></li>
+							<li><a href="#">Placas Madre</a></li>
+	          </ul>
+				</nav>
+
 			</div>
-			<section class="navcategorias"><!--Navegador por categorias de Productos-->
-				<h3>Categorias</h3>
-				<ul>
-					<li> <a href="#Propaganda">Propagandas</a> </li>
-					<li> <a href="notebooks.php">Notebooks</a> </li>
-					<li> <a href="#Cat2">Parlantes, Equipos de Audio</a> </li>
-					<li> <a href="#Cat3">Categoria de Productos 3</a> </li>
-				</ul>
-			</section>
 		</main>
+
+
+
 		<footer>
       <div class="pie_pagina">
         <ul>
