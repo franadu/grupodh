@@ -21,11 +21,11 @@
       session_start();
       setcookie("username",$_POST["username"],time()+(60*60));
       recopilaInfoEnSesion($_POST);
-      header("location:home.php");
-      exit;
+     header("location:home.php");
+     exit;
   }
-    header("location:login.php");
-    exit;
+   header("location:login.php");
+   exit;
   }
  }
  ?>

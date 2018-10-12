@@ -101,9 +101,11 @@ function registrarUsuario($datos,$imagenes){
 		/*Hago la direccion*/
 		mkdir($target_dir,0777,true);
 	}
-	/**/
+	/*Si sube imagen ya se setea la foto en el avatar*/
 	$target_file=$target_dir.basename($imagenes["avatar"]["name"]);
 	move_uploaded_file($imagenes["avatar"]["tmp_name"],$target_file);
+	
+
 	/*Copio la info en datos*/
 	$datos["avatar"]=$target_file;
 

@@ -1,12 +1,12 @@
 
 <?php
 
-require "funciones/funciones.php";
-if (isset($_COOKIE["username"])){
-	session_start();
-} else {
-	header("location:login.php");
-}
+ require "funciones/funciones.php";
+ if (isset($_COOKIE["username"])){
+ 	session_start();
+} //else {
+// 	header("location:login.php");
+// }
 
 ?>
 <!DOCTYPE html>
@@ -43,8 +43,15 @@ if (isset($_COOKIE["username"])){
 					<div class="login_bar">
 						<?php
 						if (empty($_SESSION)){
-						echo '<a class="log_in" href="registro.php"> Registrarse |</a> <a href="login.php" class="log_in">Login<a> <a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>'; } else {
-						echo '<a class="log_in" href="destroysession.php">'.'<p>'.$_SESSION["username"].'</p> <p><img src=" '.$_SESSION["avatar"].'" style="border-radius: 50%; width:30px; height:30px;"></p> <p><i class="fas fa-sign-out-alt"></i> </p></a>';
+						echo '<a class="log_in" href="registro.php"> Registrarse |</a> <a href="login.php" class="log_in">Login<a> <a href="login.php">	<i class="fas fa-sign-in-alt"></i> </a>'; }
+						else {
+							if (strlen($_SESSION["avatar"])<26){
+								echo '<a class="log_in" href="destroysession.php">'.'<p>'.$_SESSION["username"].'</p> <p><img src="images/if_user_309035.png" style="border-radius: 50%; width:30px; height:30px;"></p> <p><i class="fas fa-sign-out-alt"></i> </p></a>';
+								}
+
+						 else {
+							 echo '<a class="log_in" href="destroysession.php">'.'<p>'.$_SESSION["username"].'</p> <p><img src=" '.$_SESSION["avatar"].'" style="border-radius: 50%; width:30px; height:30px;"></p> <p><i class="fas fa-sign-out-alt"></i> </p></a>';
+							}
 						}
 						?>
 					</div>
