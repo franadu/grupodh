@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <?php
   require "funciones/funciones.php";
-  session_start();
+  if (isset($_COOKIE["username"])){
+    header("location:home.php");
+    exit;
+  }
+
   if (!empty($_POST)){
     $inicia=validacionLogin($_POST);
     if ($inicia===true){

@@ -1,33 +1,38 @@
 <?php require "funciones/funciones.php";
 
- if (!empty($_POST)){
-  $error=validacionRegistro($_POST);
-
-  if (!empty($_FILES)){/*!Esta vacio Files => !True => False*/
-    $error["size"]=validacionImagen($_FILES);
-    if ($error["size"]==NULL){unset($error["size"]);}
+  if (isset($_COOKIE["username"])){
+    header("location:home.php");
+    exit;
   }
-  $nombre=$_POST["nombre"];
-  $apellido=$_POST["apellido"];
-  $mail=$_POST["mail"];
-  $user=$_POST["username"];
-  $tel=$_POST["tel"];
-  if (isset($_POST["recordarme"])){
-    $recordarme=$_POST["recordarme"];
-  }
-  if (!$error){/*! es verdadero $error => !no => si*/
-    registrarUsuario($_POST,$_FILES);
-    if ($_POST["recordarme"]==="on"){
-      session_start();
-      setcookie("username",$_POST["username"],time()+(60*60));
-      recopilaInfoEnSesion($_POST);
-     header("location:home.php");
-     exit;
-  }
-   header("location:login.php");
-   exit;
-  }
- }
+  if (!empty($_POST)){
+    $error=validacionRegistro($_POST);
+    if (!empty($_FILES)){/*!Esta vacio Files => !True => False*/
+      $error["size"]=validacionImagen($_FILES);
+      if ($error["size"]==NULL){
+        unset($error["size"]);
+      }
+    }
+    $nombre=$_POST["nombre"];
+    $apellido=$_POST["apellido"];
+    $mail=$_POST["mail"];
+    $user=$_POST["username"];
+    $tel=$_POST["tel"];
+    if (isset($_POST["recordarme"])){
+      $recordarme=$_POST["recordarme"];
+    }
+    if (!$error){/*! es verdadero $error => !no => si*/
+      registrarUsuario($_POST,$_FILES);
+      if ($_POST["recordarme"]==="on"){
+        session_start();
+        setcookie("username",$_POST["username"],time()+(60*60));
+        recopilaInfoEnSesion($_POST);
+        header("location:home.php");
+        exit;
+      }
+      header("location:login.php");
+      exit;
+    }
+   }
  ?>
  <!DOCTYPE html>
 <html lang="en" dir="ltr">
