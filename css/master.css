@@ -218,109 +218,66 @@ header{
 /*____________________________*/
 
 /*Arranca Cuerpo del Home Mobile*/
+.principal_image{
+	margin-top: -26px;
+	margin-bottom: 10px;
+	max-width: 100%;
+	height: auto;
+}
 
-.Home {
-	margin: 10 auto;
-	border: 4px solid black;
-	margin:0;
+.h1_home{
+	background: none;
+	background-color: inherit;
+	font-size: 5em;
+}
+.home_titles{
+	font-size: 2.5em;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #000;
+}
+.home_categories{
+		display: none;
+	}
+
+.home_products{
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-.Home .row h1 {
-	width:100%;
-	text-align: center;
-	margin: 10px 0;
-	} /*Centra el titutlo en la pagina*/
-
-
-/*Secciones Propagandas y Categorias en general*/
-.Home .propaganda-categorias {
-	width: 98%;
-	padding:10px;
-	border: 2px solid Grey;
-
-	border-radius:5px;
-}
-
-/*Arranca Seccion Propaganda*/
-.Propaganda article {
-	width:98%;
-	padding:10px;
-	position: relative;
-	overflow:visible;
-}
-.Propaganda article img {
-	width:100%;
-
-	margin: 0 auto;
-}
-.Propaganda article p {
-	width: 100%;
-	position: absolute;
-	background-color: rgba(0,0,0,0.5);
-	bottom:47.5%;
-	text-align: center;
-	color:white;
-}
-.Propaganda article h4 {
-	position:absolute;
-	right:0;
-	width:25%;
-}
-
-.p2, .p3 {
-	display: none;
-}/*Por el momento las saco*/
-/*Finaliza seccion Propagada*/
-
-/*Arranca Seccion Categorias*/
-.Categorias {
-	width: 100%;
-}
-.Categorias h3 {
-	width:100%;
-	margin-bottom:3px;
-	margin-top:3px;
-}
-.Categorias h3 a {
-	border: 1px solid black;
-	width:100%;
-}
-.Categorias article {
-	display:flex;
 	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
-.Categorias article .Articulo {
-	width:48%;
-	position:relative; margin:0;
-	overflow: visible;
-	border: 2px solid #f2f2f2;
-	border-radius: 3px;
-	display: flex;
-	flex-direction: column;align-items: center;
+.home_article{
+	width: 45%;
+	border-radius: 5px;
+	border: 1px solid #D3D3CB;
+	margin-bottom: 30px;
 }
-.Categorias article .Articulo img {
-	width:100%;
+.home_article img{
+	width: 100%;
 }
-.Categorias article .Articulo p {
-	position:absolute;bottom: 0;
-	color:#fff;
-	background-color: rgba(0,0,0,0.5);
-	width:98%;
+.home_offers{
+	width: 96%;
+	border-radius: 5px;
+	border: 1px solid #D3D3CB;
+	margin-bottom: 30px;
+}
+.home_offers img{
+	width: 100%;
+}
+.home_offers:nth-child(odd){
+	display: none;
+}
+.home_product_inside{
+
 	text-align: center;
-	margin-bottom:5px;
+	width: 100%;
+	background: #ECECE6;
+	color: #000;
+	padding-top: 10px;
+	padding-bottom: 10px;
 
 }
 
-/*Finaliza seccion Categorias*/
-/*Finaliza seccio
-n Propagandas y Categorias*/
 
-/*Arranca seccion Navcategorias*/
-.navcategorias {
-	display:none;
-}
 
 
 /*Termin el Cuerpo del home Mobile*/
@@ -404,7 +361,7 @@ n Propagandas y Categorias*/
 	flex-direction: row;
 	flex-wrap: wrap;
 	background-color: #fff;
-	border: 1px solid #000;
+	border: 1px solid #D3D3CB;
 	margin-bottom: 10px;
 	border-radius: 5px;
 }
@@ -417,6 +374,7 @@ n Propagandas y Categorias*/
 	width:45%;
 	margin: 0;
 	align-self: center;
+	background-color: #ECECE6
 }
 .product:hover{
   /* tranformamos el elemento al pasar el mouse por encima al doble de
@@ -433,6 +391,7 @@ n Propagandas y Categorias*/
 	color: #fff;
 }
 
+.home_offer
 .articles{
 	display: flex;
 	flex-direction: row;
@@ -523,7 +482,7 @@ n Propagandas y Categorias*/
 .boton a{
 	color:blue;
 	color:white;
-	font-size: 1.7em;/*TODO cambiar o sacar family y font dejar que lo tome Arriba*/
+	font-size: 1.7em;/*ODO cambiar o sacar family y font dejar que lo tome Arriba*/
 }
 
 .dato_interno i{
@@ -537,7 +496,7 @@ n Propagandas y Categorias*/
 
 /* ------------------- ESTE ES EL FOOTEER --------------------*/
 .pie_pagina{
-	background: #AAAAA0;
+
 	height: 60px;
 	display: flex;
 	justify-content: center;
@@ -561,9 +520,16 @@ n Propagandas y Categorias*/
 	color: #444;
 }
 
+footer{
+	background: #AAAAA0;
+}
+
 /*-------------------- INICIO MEDIA QUERY -----------------*/
 	/*-------------Arranca REsponsive para Tablets------------------*/
 @media (min-width: 768px) {
+	.principal_image{
+		margin-top: -14px;
+	}
 	/*Afecata Cabezeras en general*/
 	header{
 		margin-bottom: 10px;
@@ -601,6 +567,7 @@ n Propagandas y Categorias*/
 		margin-left: 10px;
 		text-transform: capitalize;
 		font-family: 'Merriweather', serif;
+		font-size: 15px;
 
 	}
 	/*-----------Finaliza Responsive table Cabezera----------------*/
@@ -627,37 +594,73 @@ n Propagandas y Categorias*/
 	/*Finaliza Responsive Tablets para Main de preguntas.hmtl*/
 
 
-	/*Inicia Responsive Tablets para Main de ecommerce-home.html*/
-	.Home {
-		margin:0 auto;
-		display:flex;
+	/*Inicia Responsive Tablets para Main de home.html*/
+
+	.principal_image{
+		margin-top: -26px;
+		margin-bottom: 10px;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.h1_home{
+		background: none;
+		background-color: inherit;
+		font-size: 5em;
+	}
+	.home_titles{
+		font-size: 2.5em;
+		margin-bottom: 15px;
+		border-bottom: 1px solid #000;
+	}
+	.home_categories{
+			display: none;
+		}
+
+	.home_products{
+		display: flex;
 		flex-direction: row;
-		align-items: flex-start;
-		flex-wrap:wrap;
-		position:relative;
+		flex-wrap: wrap;
+		justify-content: space-around;
 	}
-	.Home .propaganda-categorias{
-		width: 66.66666667%;
+	.home_article{
+		width: 32%;
+		border-radius: 5px;
+		border: 1px solid #D3D3CB;
+		margin-bottom: 30px;
 	}
-	.navcategorias{
-		width: 33%;
-		margin:0 0 0 0;
-		padding:10px;
-		border: 2px solid Grey;
-		border-radius:5px;
+	.home_article img{
+		width: 100%;
+	}
+	.home_article:last-child{
+		display: none;
+	}
+	.home_offers{
+		width: 47%;
+		border-radius: 5px;
+		border: 1px solid #D3D3CB;
+		margin-bottom: 30px;
+	}
+	.home_offers img{
+		width: 100%;
+	}
+	.home_offers:nth-child(odd){
 		display: block;
-		position:absolute;
-		right:0;top: 80px;
 	}
-	.navcategorias h3{
-		width: 20.33%;
-		margin:0;
-		text-align: right;
+	.home_offers:nth-child(even){
+		display: none;
 	}
-	.navcategorias ul{
-		width:20.33%;
-		margin:0;
+	.home_product_inside{
+
+		text-align: center;
+		width: 100%;
+		background: #ECECE6;
+		color: #000;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
 	}
+
 
 
 	/*Finaliza Responsive Tablets para Main de home.html*/
@@ -704,18 +707,18 @@ n Propagandas y Categorias*/
 	}
 	.product{
 		width: 45%;
-		position: relative;
+
 		margin-bottom: 10px;
 	}
 
 	.product-inside{
-		position: absolute;
-		bottom: 0;
+
 		text-align: center;
 		width: 100%;
-		background: rgba(0, 0, 0, 0.2);
+		background: #ECECE6;
 		color: #fff;
-		margin-bottom: 35px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 
 	/*Responsive General para Pie de ¨Pagina*/
@@ -729,6 +732,7 @@ n Propagandas y Categorias*/
 	/*-----------------FInaliza Responsive para Tablets------------------------*/
 
 @media (min-width: 1200px){
+
 	body{
 		background-color: #F7F7F0;
 	}
@@ -742,6 +746,11 @@ n Propagandas y Categorias*/
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.principal_image{
+		margin-top: -14px;
+		width: 100%;
 	}
 
 	.answers{
@@ -765,23 +774,21 @@ n Propagandas y Categorias*/
 	}
 	.product{
 		width: 30%;
-		position: relative;
+
 		margin-bottom: 10px;
 	}
 
 	.product img{
-		height: auto;
+		width: 100%;
 	}
 
 	.product-inside{
-		position: absolute;
-		bottom: 0;
+
 		text-align: center;
 		width: 100%;
-		background: rgba(0, 0, 0, 0.2);
+		background: #ECECE6;
 		color: #000;
-		margin-bottom: 0px;
-		padding: 2px;-
+
 	}
 
 	.menu_lateral{
@@ -795,6 +802,7 @@ n Propagandas y Categorias*/
 		padding: 15px;
 		height: 500px;
 		background-color: #fff;
+		height: 99%;
 	}
 	.menu_lateral li{
 		margin-bottom: 15px;
@@ -802,14 +810,79 @@ n Propagandas y Categorias*/
 	/* -----------TERMINA EL RESPONSIVE DE NOTEBOOK -----------*/
 
 	/*Arranca responsive Home Desktop*/
-	.home {
-		margin: 0 auto;
-		flex-direction: column;
-	}
-	.home h1 {
-		width:100%;
-	}
-	.pie_pagina ul{
+
+
+	.container_home{
 		max-width: 1170px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.containerHomeProducts{
+		width: 78%;
+	}
+
+	.home_categories{
+		width: 20%;
+	}
+
+	.home_products{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-bottom: 30px;
+
+	}
+	.home_article{
+		width: 24%;
+		border-radius: 5px;
+		border: 1px solid #D3D3CB;
+	}
+	.home_article img{
+		width: 100%;
+	}
+	.home_article:last-child{
+		display: block;
+	}
+
+	.home_offers{
+		width: 30%;
+		border-radius: 5px;
+		border: 1px solid #D3D3CB;
+	}
+	.home_offers img{
+		width: 100%;
+	}
+
+	.home_offers:nth-child(even) {
+    display: block;
+}
+
+	.home_categories{
+		display: block;
+		width: 20%;
+		font-size: 2em;
+	}
+	.home_categories ul{
+		border: 1px solid #001;
+		border-radius: 5px;
+		padding: 15px;
+		height: 500px;
+		background-color: #fff;
+		height: 99%;
+	}
+	.home_categories li{
+		margin-bottom: 15px;
+	}
+
+	/* PIE DE PAGINA */
+
+	.pie_pagina{
+		width: 1170px;
+		margin: 0 auto;
 	}
 }
