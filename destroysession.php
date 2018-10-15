@@ -1,6 +1,6 @@
 <?php
 	require ("funciones/funciones.php");
 	logout();
-	header("location:login.php");
+	header("location:home.php");
 	exit;
  ?>
