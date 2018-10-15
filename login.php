@@ -2,8 +2,13 @@
 <?php
   require "funciones/funciones.php";
   if (isset($_COOKIE["username"])){
-    header("location:home.php");
-    exit;
+    echo "hola";
+    if ($_COOKIE["username"]!==""){
+      var_dump($_COOKIE);
+      var_dump($_SESSION);
+      header("location:home.php");
+      exit;
+    }
   }
 
   if (!empty($_POST)){
@@ -67,7 +72,15 @@
           </nav>
           <div class="dato_interno">
             <i class="fas fa-address-card"></i>
-            <input type="text" name="username" value="<?php if (isset($_POST["username"])){echo $_POST["username"];} ?>" placeholder="Nombre de Usuario">
+            <input type="text" name="username" value="
+             <?php
+              if (isset($_COOKIE["username"])&&$_COOKIE["username"]==""){
+              } else {
+                if (isset($_POST["username"])){
+                  echo $_POST["username"];
+                }
+              }
+            ?>" placeholder="Nombre de Usuario">
             <p> <span> <?php echo  (isset($inicia))? $inicia: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
