@@ -1,4 +1,5 @@
 <?php
+
 function validacionRegistro($datos){
 	$errores=[];
 	if (strlen(trim($datos["nombre"]))<2){
@@ -16,6 +17,7 @@ function validacionRegistro($datos){
 			$errores["apellido"]="*El apellido es muy Largo.";
 		}
 	}
+
 	if (!filter_var($datos["mail"],FILTER_VALIDATE_EMAIL)){
 		$errores["mail"]="*El mail es Invalido";
 	}
@@ -23,7 +25,8 @@ function validacionRegistro($datos){
 	if ($datos["username"]===""){
 		$errores["username"]="*No ingreso un nombre de usuario valido";
 	} else {
-		if (file_exists("usuarios/json.txt")){
+		if (file_exists("usuarios/json.json")){
+			echo "existo";
 			$actuales=file_get_contents("usuarios/json.json");
 			if ($actuales!==""){
 				$actuales=json_decode($actuales,true);
@@ -37,7 +40,7 @@ function validacionRegistro($datos){
 	}
 
 	if (strlen(trim($datos["contra"]))<8) {
-		$errores["contra"]="*La contraseña es muy corta";
+		$errores["contra"]="*La contraseña debe tener almenos 8 caracteres";
 	} if ($datos["conficontra"]!==$datos["contra"]){
 		$errores["conficontra"]="*No replico bien la Contraseña";
 	}
@@ -104,7 +107,7 @@ function registrarUsuario($datos,$imagenes){
 	/*Si sube imagen ya se setea la foto en el avatar*/
 	$target_file=$target_dir.basename($imagenes["avatar"]["name"]);
 	move_uploaded_file($imagenes["avatar"]["tmp_name"],$target_file);
-	
+
 
 	/*Copio la info en datos*/
 	$datos["avatar"]=$target_file;
@@ -126,21 +129,29 @@ function registrarUsuario($datos,$imagenes){
 
 function validacionLogin($datos){
 	/*Consigo el contenido*/
-	$actuales=file_get_contents("usuarios/json.json");
-	/*Transformo el json en un array*/
-	$actuales=json_decode($actuales,true);
-	/*Comienzo una variable booleana para decidir que sucede luego
-	si retorna falsa no puede comezar la sessión de lo contrario se inicia sessión */
+	$inicia="Debe de Registrarse.";
+	if (file_exists("usuarios/json.json")){
+		$actuales=file_get_contents("usuarios/json.json");
+		/*Transformo el json en un array*/
 
-	$inicia="No puso bien su contraseña o su nombre de usuario";
-	/*Para pasarpor todos los usuarios que hay y comparar con el usuario puesto*/
+		if ($actuales===""){
+			return $inicia;
+		}
+		/*Sino*/
+		$actuales=json_decode($actuales,true);
+		/*Comienzo una variable booleana para decidir que sucede luego
+		si retorna falsa no puede comezar la sessión de lo contrario se inicia sessión */
 
-	for ($i=0; $i < count($actuales["usuario"]); $i++) {
-		if ($actuales["usuario"][$i]["username"]===$datos["username"]){
-			/*Para verificar si la contraseña se puso bien*/
-			if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"])){
-				$inicia=true;
-				return $inicia;
+		$inicia="No puso bien su contraseña o su nombre de usuario";
+		/*Para pasarpor todos los usuarios que hay y comparar con el usuario puesto*/
+
+		for ($i=0; $i < count($actuales["usuario"]); $i++) {
+			if ($actuales["usuario"][$i]["username"]===$datos["username"]){
+				/*Para verificar si la contraseña se puso bien*/
+				if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"])){
+					$inicia=true;
+					return $inicia;
+				}
 			}
 		}
 	}
@@ -163,7 +174,7 @@ function recopilaInfoEnSesion($datos){
 
 function logout(){
 	session_start();
-	setcookie("username",$_COOKIE["username"]);
+	setcookie("username",$_COOKIE["username"],time()-1);
 	session_destroy();
 }
 ?>
