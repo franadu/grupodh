@@ -63,6 +63,10 @@ if (!empty($_COOKIE)){
             <img src="images/prueba_laptop.jpg" alt="">
             <!-- CAJA QUE CONTIENE LOS PRECIOS Y EL NOMBRE -->
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$30.000</h3>
               <h4>Laptop Siragon</h4>
             </div>
@@ -70,6 +74,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook2.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$10.849</h3>
               <h4>Notebook Gadnic 15,6 </h4>
             </div>
@@ -77,6 +85,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook3.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$12.638</h3>
               <h4>Notebook Hp 240</h4>
             </div>
@@ -84,6 +96,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook4.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$10.999</h3>
               <h4>Notebook Asus Vivobook</h4>
             </div>
@@ -91,6 +107,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/prueba_laptop.jpg" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$30.000</h3>
               <h4>Laptop Siragon</h4>
             </div>
@@ -98,6 +118,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook2.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$10.849</h3>
               <h4>Notebook Gadnic 15,6 </h4>
             </div>
@@ -105,6 +129,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook3.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$12.638</h3>
               <h4>Notebook Hp 240</h4>
             </div>
@@ -112,6 +140,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook4.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$10.999</h3>
               <h4>Notebook Asus Vivobook</h4>
             </div>
@@ -119,6 +151,10 @@ if (!empty($_COOKIE)){
         <article class="product">
             <img src="images/notebook4.webp" alt="">
             <div class="product-inside">
+							<div class="fav-add">
+								<i class="fas fa-heart"></i>
+								<i class="fas fa-cart-plus"></i>
+							</div>
               <h3>$10.999</h3>
               <h4>Notebook Asus Vivobook</h4>
             </div>
