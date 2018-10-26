@@ -807,6 +807,9 @@ footer{
 
 		margin-bottom: 10px;
 	}
+	.product:nth-child(even){
+		display: block;
+	}
 
 	.product img{
 		width: 100%;
