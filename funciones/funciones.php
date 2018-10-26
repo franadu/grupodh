@@ -21,6 +21,22 @@ function validacionRegistro($datos){
 	if (!filter_var($datos["mail"],FILTER_VALIDATE_EMAIL)){
 		$errores["mail"]="*El mail es Invalido";
 	}
+	if ($datos["mail"]===""){
+		$errores["mail"]="*El mail no puede estar vacio";
+	} else {
+		if (file_exists("usuarios/json.json")){
+			echo "existo";
+			$actuales=file_get_contents("usuarios/json.json");
+			if ($actuales!==""){
+				$actuales=json_decode($actuales,true);
+				for ($i=0; $i <count($actuales["usuario"]) ; $i++) {
+					if ($datos["mail"]===$actuales["usuario"][$i]["mail"]){
+						$errores["mail"]="El email ya existe";
+					}
+				}
+			}
+		}
+	}
 
 	if ($datos["username"]===""){
 		$errores["username"]="*No ingreso un nombre de usuario valido";
