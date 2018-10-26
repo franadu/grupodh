@@ -145,7 +145,7 @@ function registrarUsuario($datos,$imagenes){
 
 function validacionLogin($datos){
 	/*Consigo el contenido*/
-	$inicia="Debe de Registrarse.";
+	$inicia="El usuario no Existe";
 	if (file_exists("usuarios/json.json")){
 		$actuales=file_get_contents("usuarios/json.json");
 		/*Transformo el json en un array*/

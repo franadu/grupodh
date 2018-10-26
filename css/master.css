@@ -452,7 +452,7 @@ header{
  	height: 30px;
 }
 .dato_interno span{
-	color:red;
+	color: #fff;
 }
 .dato_interno p {
 	text-align: center;
