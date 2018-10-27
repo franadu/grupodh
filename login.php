@@ -31,12 +31,10 @@
     <link rel="stylesheet" href="css/master.css">
     <title></title>
   </head>
-  <body>
+  <body class = login_body>
     <!-- CABEZERA -->
     <header class="cabezera">
-      <?php
 
-    ?>
       <!-- LOGO --> <!--Agrego el anclaje para que lleve a home-->
       <div class="logo">
         <a href="home.php"><img src="images/Android_O_Preview_Logo.png" alt=""></a>

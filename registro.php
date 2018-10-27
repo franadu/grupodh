@@ -1,4 +1,13 @@
-<?php require "funciones/funciones.php";
+<?php
+
+  require "funciones/funciones.php";
+  require "Classes/Json.php";
+  require "Classes/Validate.php";
+  require "Classes/Usuario.php";
+
+  $db = new Json();
+
+
 
   if (isset($_COOKIE["username"])){
     if ($_COOKIE["username"]!==""){
@@ -8,13 +17,13 @@
   }
 
   if (!empty($_POST)){
-    $error=validacionRegistro($_POST);
-    if (!empty($_FILES)){/*!Esta vacio Files => !True => False*/
-      $error["size"]=validacionImagen($_FILES);
-      if ($error["size"]==NULL){
-        unset($error["size"]);
-      }
-    }
+    // $error=validacionRegistro($_POST);
+    // if (!empty($_FILES)){/*!Esta vacio Files => !True => False*/
+    //   $error["size"]=validacionImagen($_FILES);
+    //   if ($error["size"]==NULL){
+    //     unset($error["size"]);
+    //   }
+    // }
     $nombre=$_POST["nombre"];
     $apellido=$_POST["apellido"];
     $mail=$_POST["mail"];
@@ -23,8 +32,13 @@
     if (isset($_POST["recordarme"])){
       $recordarme=$_POST["recordarme"];
     }
+    $usuario = new Usuario($nombre, $apellido, $user, $mail, $tel, $_POST['contra']);
+    $error = Validate::RegisterValidate($db, $usuario, $_POST, $_FILES);
+
+
+
     if (!$error){/*! es verdadero $error => !no => si*/
-      registrarUsuario($_POST,$_FILES);
+      $db->guardarUsuario($usuario,$_FILES);
       if ($_POST["recordarme"]==="on"){
         session_start();
         setcookie("username",$_POST["username"],time()+(60*60));

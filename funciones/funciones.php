@@ -133,7 +133,7 @@ function registrarUsuario($datos,$imagenes){
 	$json=$actuales;
 	}
 	/*Creo el nuevo usuario*/
-	$json["usuario"][] =$datos;
+	$json["usuario"][] = $datos;
 
 	/*Transformo el usuario en string*/
 	$json=json_encode($json,true);
