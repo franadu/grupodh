@@ -3,40 +3,26 @@
 
     class Json extends Db{
 
-    public static function connector(){
-       return file_get_contents("usuarios/json.json");
-    }
 
 
     public function guardarUsuario($usuario, $imagen)
     {
-        $archivo= file_get_contents("usuarios/json.json");
 
+        self::JsonCreate();
+        $archivo= self::connector();
         $usuario->setContra(password_hash($usuario->getContra(),PASSWORD_DEFAULT));
+        $archivo = json_decode($archivo, True);
+
+        $ultimoID=(count($archivo["usuario"]));
+
+        $target_dir = "assets/uploads/usuarios/$ultimoID/";
+        if (!is_dir($target_dir)) {
+
+            mkdir($target_dir, 0777, true);
+            $archivo["usuario"][] = $usuario;
+        }
 
 
-        if ($archivo!==""){
-      		$guardados=json_decode($archivo,true);
-      		for ( $i=0; $i <count($guardados["usuario"]) ; $i++) {
-      			if ($usuario->getUsername()===$guardados["usuario"][$i]["username"]){
-      				$target_dir="usuarios/uploads/$i/";
-      			}
-      		}
-      	} else {
-      		$i=0;
-      	}
-
-        /*Si no esta seteada direccion porque no hubo un usuario con el nombre*/
-      	if (!isset($target_dir)){
-      		/*Genero la direccion*/
-      		$target_dir="usuarios/uploads/$i/";
-      	}
-      	/*Si la direccion no existe*/
-      	if(!is_dir($target_dir)){
-      		/*Hago la direccion*/
-      		mkdir($target_dir,0777,true);
-          $guardados["usuario"][] = $usuario;
-      	}
       	/*Si sube imagen ya se setea la foto en el avatar*/
       	$target_file=$target_dir.basename($imagen["avatar"]["name"]);
       	move_uploaded_file($imagen["avatar"]["tmp_name"],$target_file);
@@ -47,29 +33,46 @@
 
 
       	/**/
-      	
-      	$json=$guardados;
+
+      	$json=$archivo;
+        $usu = self::objectToArray($usuario);
 
       	/*Creo el nuevo usuario*/
-      	$json["usuario"][] = $usuario;
-        echo "<pre>";
-        var_dump($json);
-        echo "</pre>";
-        echo "<pre>";
-        var_dump((array) $usuario );
-        echo "</pre>";
+      	$json["usuario"][] = $usu;
+
 
       	/*Transformo el usuario en string*/
       	$subir=json_encode($json,true);
 
-        echo "<pre>";
-        var_dump($subir);
-        echo "</pre>";
-        exit;
 
       	/*Guardo la info en el archivo correspondiente*/
       	$archivo="usuarios/json.json";
-        file_put_contents($archivo,$json);
+        file_put_contents($archivo,$subir);
+    }
+
+    public static function connector(){
+       return file_get_contents("usuarios/json.json");
+    }
+
+    public static function JsonCreate(){
+      if (!file_exists("usuarios/json.json")){
+        /*no Existe entonces lo creo*/
+      $archivo=fopen("usuarios/json.json","w+");
+      fclose($archivo);
+      }
+    }
+
+    public static function objectToArray($usuario){
+      $usu = [
+        "nombre" => $usuario->getNombre(),
+        "apellido" => $usuario->getApellido(),
+        "mail" => $usuario->getMail(),
+        "username" => $usuario->getUsername(),
+        "tel" => $usuario->getTel(),
+        "contra" => $usuario->getContra(),
+        "avatar" => $usuario->getAvatar(),
+      ];
+      return $usu;
     }
 
   }
