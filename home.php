@@ -4,7 +4,6 @@
  require "funciones/funciones.php";
  if (isset($_COOKIE["username"])){
  	session_start();
-  var_dump($_COOKIE);
 } //else {
 // 	header("location:login.php");
 // }

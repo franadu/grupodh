@@ -8,22 +8,16 @@
   $db = new Json();
 
 
-
-  if (isset($_COOKIE["username"])){
-    if ($_COOKIE["username"]!==""){
+  session_start();
+  if (isset($_SESSION["username"])){
+    if ($_SESSION["username"]!==""){
       header("location:home.php");
       exit;
     }
   }
 
   if (!empty($_POST)){
-    // $error=validacionRegistro($_POST);
-    // if (!empty($_FILES)){/*!Esta vacio Files => !True => False*/
-    //   $error["size"]=validacionImagen($_FILES);
-    //   if ($error["size"]==NULL){
-    //     unset($error["size"]);
-    //   }
-    // }
+
     $nombre=$_POST["nombre"];
     $apellido=$_POST["apellido"];
     $mail=$_POST["mail"];
@@ -39,17 +33,10 @@
 
     if (!$error){/*! es verdadero $error => !no => si*/
       $db->guardarUsuario($usuario,$_FILES);
-      if ($_POST["recordarme"]==="on"){
-        session_start();
-        setcookie("username",$_POST["username"],time()+(60*60));
-        recopilaInfoEnSesion($_POST);
-        //header("location:home.php");
-        //exit;
-      }
-    header("location:login.php");
-    exit;
+      header("location:login.php");
+      exit;
     }
-   }
+  }
  ?>
  <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -142,7 +129,6 @@
           <div class="dato_terminos">
             <div class="caja-subdivisoria">
               <input type="checkbox" name="terminos"><a>Accepta Terminos y Condiciones</a>
-              <input type="checkbox" name="recordarme" <?php echo (isset($recordarme))? "selected":"";?>><a>Recordarme</a>
             </div>
             <p> <span> <?php echo (isset($error["terminos"]))? $error["terminos"]: ""; ?></span> </p>
           </div>

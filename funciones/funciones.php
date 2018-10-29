@@ -21,7 +21,6 @@ function recopilaInfoEnSesion($datos){
 
 function logout(){
 	session_start();
-	setcookie("username",$_COOKIE["username"],time()-1);
 	session_destroy();
 }
 ?>

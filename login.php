@@ -2,21 +2,22 @@
 <?php
   require "funciones/funciones.php";
   require "Classes/Validate.php";
-  if (isset($_COOKIE["username"])){
-    echo "hola";
-    if ($_COOKIE["username"]!==""){
-      var_dump($_COOKIE);
-      var_dump($_SESSION);
+
+  session_start();
+  if (isset($_SESSION["username"])){
+    if ($_SESSION["username"]!==""){
       header("location:home.php");
       exit;
     }
   }
 
   if (!empty($_POST)){
+    if ($_POST["recordame"]="on") {
+      setcookie("username",$_POST["username"],time()+(60*60));
+    }
     $inicia=Validate::loginValidate($_POST);
     if ($inicia===true){
       session_start();
-      setcookie("username",$_POST["username"],time()+(60*60));
       recopilaInfoEnSesion($_POST);
       header("location:home.php");
       exit;
@@ -46,8 +47,6 @@
                 echo $_COOKIE["username"];
               }  ?>" placeholder="Nombre de Usuario">
             <p> <span> <?php echo  (isset($inicia))? $inicia: ""; ?></span> </p>
-            <?php
-            var_dump($_COOKIE); ?>
           </div>
 
           <div class="dato_interno">
@@ -57,7 +56,9 @@
           </div>
           <div class="boton">
             <button type="submit">Iniciar Seción</button>
+
             <a href="registro.php">¿Desea registrarse?</a>
+            <input type="checkbox" name="recordarme" <?php echo (isset($recordarme))? "selected":"";?>><a>Recordarme</a>
             <!--<a href=""-->
           </div>
         </div>
