@@ -1,7 +1,7 @@
 <?php
-if (!empty($_COOKIE)){
+
 	session_start();
-}
+
 ?>
 <!DOCTYPE html>
 <html>

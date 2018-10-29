@@ -2,9 +2,9 @@
 <?php
 
  require "funciones/funciones.php";
- if (isset($_COOKIE["username"])){
+
  	session_start();
-} //else {
+//else {
 // 	header("location:login.php");
 // }
 

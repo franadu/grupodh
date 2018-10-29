@@ -12,7 +12,7 @@
   }
 
   if (!empty($_POST)){
-    if ($_POST["recordame"]="on") {
+    if ($_POST["recordarme"] == "on") {
       setcookie("username",$_POST["username"],time()+(60*60));
     }
     $inicia=Validate::loginValidate($_POST);
@@ -33,7 +33,7 @@
     <!-- CABEZERA -->
     <?php require "header.php"; ?>
     <!-- CABEZERA -->
-    <main>
+    <main class="main_login">
       <form class="caja_formulario" action="" method="post">
 
         <div class="datos">
