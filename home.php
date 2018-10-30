@@ -4,9 +4,6 @@
  require "funciones/funciones.php";
 
  	session_start();
-//else {
-// 	header("location:login.php");
-// }
 
 ?>
 <!DOCTYPE html>

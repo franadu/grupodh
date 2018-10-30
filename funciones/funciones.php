@@ -1,10 +1,5 @@
 <?php
 
-
-
-
-
-
 function recopilaInfoEnSesion($datos){
 	$actuales=file_get_contents("usuarios/json.json");
 	$actuales=json_decode($actuales,true);
