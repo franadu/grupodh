@@ -41,7 +41,7 @@
         $error['username'] = "Debe introducir un usuario correcto";
       }
       if (self::validarSiExiste($db::connector(), $user->getNombre(), $user->getMail())) {
-          $error["username"] ="ya existe este usuario o mail";
+          $error["username"] ="Ya existe este usuario o mail";
 
       }
 
@@ -55,13 +55,17 @@
         $error['mail'] = "Debe ingresar un correo electronico valido.";
       }
       if (!isset($data['terminos'])) {
-           $error["terminos"]="tenes que aceptar terminos y condiciones";
+        $error["terminos"]="Tenes que aceptar terminos y condiciones";
       }
-      if (strlen($user->getTel()) == 10 && $user->getTel())
+
+      if (strlen($user->getTel()) !== 10 || !is_numeric($user->getTel())){
+        $error["tel"] = "Debe ingresar un numero de telefono correcto";
+      }
+      
       if ($imagen["avatar"]["size"] > (5000*1024)){
       	$error["size"]="La Imagen es muy grande";
       }
-      if($imagen["avatar"]["type"] != 'image/png' && $imagen["avatar"]["type"] != 'image/jpeg' && $imagen["avatar"]["type"] != 'image/jpg' && $imagen["avatar"]["type"] != 'image/webp' $imagen["avatar"]["type"] != ""){
+      if($imagen["avatar"]["type"] != 'image/png' && $imagen["avatar"]["type"] != 'image/jpeg' && $imagen["avatar"]["type"] != 'image/jpg' && $imagen["avatar"]["type"] != 'image/webp' && $imagen["avatar"]["type"] != ""){
         $error["size"]="Solo puede subir imagenes.";
       }
       return $error;

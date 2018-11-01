@@ -31,7 +31,7 @@
     }
     $usuario = new Usuario($nombre, $apellido, $user, $mail, $tel, $_POST['contra']);
     $error = Validate::RegisterValidate($db, $usuario, $_POST, $_FILES);
-
+    
 
 
     if (!$error){/*! es verdadero $error => !no => si*/
@@ -113,6 +113,7 @@
           <div class="dato_interno">
             <i class="fas fa-phone-square"></i>
             <input type="tel" name="tel" value="<?php echo (!empty($tel))? $tel : "" ;  ?>"  placeholder="Telefono">
+            <p> <span> <?php echo  (isset($error["telf"]))? $error["tel"]: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-images"></i>
