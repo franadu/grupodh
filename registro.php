@@ -29,10 +29,11 @@
     if (isset($_POST["recordarme"])){
       $recordarme=$_POST["recordarme"];
     }
-    $usuario = new Usuario($nombre, $apellido, $user, $mail, $tel, $_POST['contra']);
+    $usuario = new User($nombre, $apellido, $user, $mail, $tel,$img="", $_POST['contra']);
     $error = Validate::RegisterValidate($db, $usuario, $_POST, $_FILES);
 
     if (!$error){/*! es verdadero $error => !no => si*/
+
       $db->guardarUsuario($usuario,$_FILES);
       header("location:login.php");
       exit;
@@ -111,7 +112,7 @@
           <div class="dato_interno">
             <i class="fas fa-phone-square"></i>
             <input type="tel" name="tel" value="<?php echo (!empty($tel))? $tel : "" ;  ?>"  placeholder="Telefono">
-            <p> <span> <?php echo  (isset($error["telf"]))? $error["tel"]: ""; ?></span> </p>
+            <p> <span> <?php echo  (isset($error["tel"]))? $error["tel"]: ""; ?></span> </p>
           </div>
           <div class="dato_interno">
             <i class="fas fa-images"></i>
