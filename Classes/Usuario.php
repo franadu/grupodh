@@ -1,35 +1,36 @@
 <?php
 
-	class Usuario
+	class User
 	{
-		private $nombre;
-		private $apellido;
+		private $name;
+		private $last_name;
 		private $username;
 		private $mail;
-		private $tel;
-		private $contra;
-		private $avatar;
+		private $phone;
+		private $password;
+		private $image;
 
-		function __construct($nombre, $apellido, $username, $mail, $tel, $contra)
+		function __construct($name, $last_name, $username, $mail, $phone, $image="", $password)
 		{
-			$this->nombre=$nombre;
-			$this->apellido=$apellido;
+			$this->name=$name;
+			$this->last_name=$last_name;
 			$this->username=$username;
 			$this->mail=$mail;
-			$this->tel=$tel;
-			$this->contra=$contra;
+			$this->phone=$phone;
+			$this->password=$password;
+			$this->image=$image;
 
 		}
 
 		/*Arrancan Setters*/
-		public function setName($nombre)
+		public function setName($name)
 		{
-			$this->nombre=$nombre;
+			$this->name=$name;
 		}
 
-		public function setApellido($apellido)
+		public function setLast_Name($last_name)
 		{
-			$this->apellido=$apellido;
+			$this->last_name=$last_name;
 		}
 
 		public function setUsername($username)
@@ -42,29 +43,30 @@
 			$this->mail=$mail;
 		}
 
-		public function setTel($tel)
+		public function setPhone($phone)
 		{
-			$this->tel=$tel;
+			$this->phone=$phone;
 		}
 
-		public function setContra($contra)
+		public function setPassword($password)
 		{
-			$this->contra=$contra;
+			$this->password=$password;
 		}
-		public function setAvatar($avatar)
+
+		public function setAvatar($image)
 		{
-			$this->avatar=$avatar;
+			$this->image=$image;
 		}
 
 		/*Arrancan Getters*/
-		public function getnombre()
+		public function getName()
 		{
-			return $this->nombre;
+			return $this->name;
 		}
 
-		public function getApellido()
+		public function getLast_Name()
 		{
-			return $this->apellido;
+			return $this->last_name;
 		}
 
 		public function getUsername()
@@ -77,17 +79,18 @@
 			return $this->mail;
 		}
 
-		public function getTel(){
-			return $this->tel;
+		public function getPhone(){
+			return $this->Phone;
 		}
 
-		public function getContra()
+		public function getPassword()
 		{
-			return $this->contra;
+			return $this->password;
 		}
+
 		public function getAvatar()
 		{
-			return $this->avatar;
+			return $this->image;
 		}
 	}
 
