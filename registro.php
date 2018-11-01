@@ -31,8 +31,6 @@
     }
     $usuario = new Usuario($nombre, $apellido, $user, $mail, $tel, $_POST['contra']);
     $error = Validate::RegisterValidate($db, $usuario, $_POST, $_FILES);
-    
-
 
     if (!$error){/*! es verdadero $error => !no => si*/
       $db->guardarUsuario($usuario,$_FILES);
