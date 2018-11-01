@@ -29,9 +29,9 @@
     if (isset($_POST["recordarme"])){
       $recordarme=$_POST["recordarme"];
     }
-    $usuario = new Usuario($nombre, $apellido, $user, $mail, $tel, $_POST['contra']);
+    $usuario = new User($nombre, $apellido, $user, $mail, $tel,$img="", $_POST['contra']);
     $error = Validate::RegisterValidate($db, $usuario, $_POST, $_FILES);
-    
+
 
 
     if (!$error){/*! es verdadero $error => !no => si*/
