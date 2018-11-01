@@ -80,7 +80,7 @@
 		}
 
 		public function getPhone(){
-			return $this->Phone;
+			return $this->phone;
 		}
 
 		public function getPassword()

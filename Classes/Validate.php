@@ -58,8 +58,10 @@
         $error["terminos"]="Tenes que aceptar terminos y condiciones";
       }
 
-      if (strlen($user->getPhone()) !== 10 || !is_numeric($user->getPhone())){
-        $error["tel"] = "Debe ingresar un numero de telefono correcto";
+      if (!empty($user->getPhone())){
+        if (strlen($user->getPhone()) !== 10 || !is_numeric($user->getPhone())){
+          $error["tel"] = "Debe ingresar un numero de telefono correcto";
+        }
       }
 
       if ($imagen["avatar"]["size"] > (5000*1024)){

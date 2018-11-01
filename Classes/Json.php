@@ -6,7 +6,7 @@
     public function guardarUsuario($usuario, $imagen)
     {
         $archivo= self::connector();
-        $usuario->setContra(password_hash($usuario->getContra(),PASSWORD_DEFAULT));
+        $usuario->setPassword(password_hash($usuario->getPassword(),PASSWORD_DEFAULT));
         $archivo = json_decode($archivo, True);
 
         $ultimoID=(count($archivo["usuario"]));
@@ -40,11 +40,17 @@
     }
 
     public static function JsonCreate(){
+      if (!is_dir("usuarios/")){
+        mkdir("usuarios/",0777,true);
+      }
       if (!file_exists("usuarios/json.json")){
         /*no Existe entonces lo creo*/
+
       $archivo=fopen("usuarios/json.json","w+");
       fclose($archivo);
       }
+      $archivo="usuarios/json.json";
+      return $archivo;
     }
 
     public static function connector(){
@@ -52,19 +58,19 @@
       if(is_dir($archivo)){
         return file_get_contents($archivo);
       }else{
-        self::JsonCreate();
+        $archivo=self::JsonCreate();
         return file_get_contents($archivo);
       }
     }
 
     public static function objectToArray($usuario){
       $usu = [
-        "nombre" => $usuario->getNombre(),
-        "apellido" => $usuario->getApellido(),
+        "nombre" => $usuario->getName(),
+        "apellido" => $usuario->getLast_Name(),
         "mail" => $usuario->getMail(),
         "username" => $usuario->getUsername(),
-        "tel" => $usuario->getTel(),
-        "contra" => $usuario->getContra(),
+        "tel" => $usuario->getPhone(),
+        "contra" => $usuario->getPassword(),
         "avatar" => $usuario->getAvatar(),
       ];
       return $usu;
