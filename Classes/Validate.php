@@ -15,11 +15,15 @@
       // echo "<pre>";
       // var_dump($datos);
       // echo "</pre>";
-      for ($i=0; $i < count($datos["usuario"]); $i++) {
-      //Me fijo si el usuario ingresado ya existe
-      if ($datos["usuario"][$i]["username"] == $username || $datos["usuario"][$i]["mail"] == $email) {
-          return true;
+      if(file_exists("usuarios/json.json") && $datos["usuario"]){
+        for ($i=0; $i < count($datos["usuario"]); $i++) {
+        //Me fijo si el usuario ingresado ya existe
+        if ($datos["usuario"][$i]["username"] == $username || $datos["usuario"][$i]["mail"] == $email) {
+            return true;
           }
+        }
+      }else{
+        return false;
       }
     }
 
@@ -55,6 +59,9 @@
       }
       if ($imagen["avatar"]["size"] > (5000*1024)){
       	$error["size"]="La Imagen es muy grande";
+      }
+      if($imagen["avatar"]["type"] != 'image/png' && $imagen["avatar"]["type"] != 'image/jpeg' && $imagen["avatar"]["type"] != 'image/jpg' && $imagen["avatar"]["type"] != ""){
+        $error["size"]="Solo puede subir imagenes.";
       }
       return $error;
     }

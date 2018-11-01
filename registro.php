@@ -17,7 +17,10 @@
   }
 
   if (!empty($_POST)){
-
+    // echo "<pre>";
+    // var_dump($_FILES["avatar"]["type"]);
+    // echo "</pre>";
+    // exit;
     $nombre=$_POST["nombre"];
     $apellido=$_POST["apellido"];
     $mail=$_POST["mail"];

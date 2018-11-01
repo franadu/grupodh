@@ -5,7 +5,6 @@
 
     public function guardarUsuario($usuario, $imagen)
     {
-        self::JsonCreate();
         $archivo= self::connector();
         $usuario->setContra(password_hash($usuario->getContra(),PASSWORD_DEFAULT));
         $archivo = json_decode($archivo, True);
@@ -40,15 +39,21 @@
         file_put_contents($archivo,$subir);
     }
 
-    public static function connector(){
-       return file_get_contents("usuarios/json.json");
-    }
-
     public static function JsonCreate(){
       if (!file_exists("usuarios/json.json")){
         /*no Existe entonces lo creo*/
       $archivo=fopen("usuarios/json.json","w+");
       fclose($archivo);
+      }
+    }
+
+    public static function connector(){
+      $archivo = "usuarios/json.json";
+      if(is_dir($archivo)){
+        return file_get_contents($archivo);
+      }else{
+        self::JsonCreate();
+        return file_get_contents($archivo);
       }
     }
 
