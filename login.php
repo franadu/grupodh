@@ -55,7 +55,7 @@
             <p> <span> <?php echo  (isset($inicia))? $inicia: ""; ?></span> </p>
           </div>
           <div class="boton">
-            <button type="submit">Iniciar Seción</button>
+            <button type="submit">Iniciar Sesión</button>
 
             <a href="registro.php">¿Desea registrarse?</a>
             <input type="checkbox" name="recordarme" <?php echo (isset($recordarme))? "selected":"";?>><a>Recordarme</a>

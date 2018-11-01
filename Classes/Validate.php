@@ -2,8 +2,8 @@
 
   class Validate{
 
-    public static function PasswordConfirm(Usuario $user, $data){
-      $pass1 = $user->getContra();
+    public static function PasswordConfirm(User $user, $data){
+      $pass1 = $user->getPassword();
       $pass2 = $data['conficontra'];
 
       return $pass1 == $pass2;
@@ -29,23 +29,23 @@
 
     public static function RegisterValidate($db, $user, $data, $imagen){
       $error = [];
-      if(strlen($user->getNombre()) < 2){
+      if(strlen($user->getName()) < 2){
         $error['nombre'] = "Introdujo un nombre muy corto.";
       }
 
-      if(strlen($user->getApellido()) < 2){
+      if(strlen($user->getLast_Name()) < 2){
         $error['apellido'] = "Introdujo un apellido muy corto.";
       }
 
       if(strlen($user->getUsername()) < 2){
         $error['username'] = "Debe introducir un usuario correcto";
       }
-      if (self::validarSiExiste($db::connector(), $user->getNombre(), $user->getMail())) {
+      if (self::validarSiExiste($db::connector(), $user->getUsername(), $user->getMail())) {
           $error["username"] ="Ya existe este usuario o mail";
 
       }
 
-      if(strlen($user->getContra())<7){
+      if(strlen($user->getPassword())<7){
         $error['contra'] = "Contraseña muy corta.";
       }
       if(!self::PasswordConfirm($user, $data)){
@@ -58,10 +58,12 @@
         $error["terminos"]="Tenes que aceptar terminos y condiciones";
       }
 
-      if (strlen($user->getTel()) !== 10 || !is_numeric($user->getTel())){
-        $error["tel"] = "Debe ingresar un numero de telefono correcto";
+      if (!empty($user->getPhone())){
+        if (strlen($user->getPhone()) !== 10 || !is_numeric($user->getPhone())){
+          $error["tel"] = "Debe ingresar un numero de telefono correcto";
+        }
       }
-      
+
       if ($imagen["avatar"]["size"] > (5000*1024)){
       	$error["size"]="La Imagen es muy grande";
       }
