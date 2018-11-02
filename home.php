@@ -4,6 +4,9 @@
  require "funciones/funciones.php";
 
  	session_start();
+  if(!empty($_COOKIE["username"])){
+    cookieComprobate($_COOKIE);
+  }
 
 ?>
 <!DOCTYPE html>

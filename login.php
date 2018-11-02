@@ -12,13 +12,11 @@
   }
 
   if (!empty($_POST)){
-    if ($_POST["recordarme"] == "on") {
-      setcookie("username",$_POST["username"],time()+(60*60));
-    }
     $inicia=Validate::loginValidate($_POST);
     if ($inicia===true){
       session_start();
       recopilaInfoEnSesion($_POST);
+      cookieCreate($_POST, $_SESSION);
       header("location:home.php");
       exit;
     }
