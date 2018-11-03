@@ -1,5 +1,6 @@
 <?php
 require 'Classes/Json.php';
+require 'Classes/Mysql.php';
 function recopilaInfoEnSesion($datos){
 	$actuales=file_get_contents("usuarios/json.json");
 	$actuales=json_decode($actuales,true);
@@ -45,4 +46,11 @@ function cookieComprobate($cookie){
 	}
 
 }
+
+/*Para crear las tablas de mysql en su propia Mysql*/
+require 'variablesmysql.php';
+Mysql::createTables($dsn,$user,$pass);
+Mysql::migracionUsuariosDeJsonAMysql();
+
+
 ?>
