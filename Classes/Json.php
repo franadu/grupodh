@@ -8,7 +8,9 @@
         $archivo= self::connector();
         $usuario->setPassword(password_hash($usuario->getPassword(),PASSWORD_DEFAULT));
         $archivo = json_decode($archivo, True);
+        /*TODO la imagen se guarda en una carpeta especial para cada usuario... lo que uno necesita es la direccion de la imagen, por ende, el crear la o guardarla de aca y la llevaría a otro lugar (funcion) que si el usuario lleva una imagen la guarde sino le de una imagen por defecto.
 
+        Esto genera poder sacar el parametro imagen del json por que el usuario ya va a tener esa direccion, asi se puede sacar el parametro imagen de todas las bases de datos (en mysql yo la paso vacía a la imagen)*/
         $ultimoID=(count($archivo["usuario"]));
         $target_dir = "assets/uploads/usuarios/$ultimoID/";
         if (!is_dir($target_dir)) {
