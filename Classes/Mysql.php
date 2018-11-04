@@ -96,6 +96,21 @@
 				echo $a->getMessage();
 			}
 		}
+
+		static public function connectionMysql($dsn,$user,$pass)
+		{
+			$connected=false;
+			try	{
+				$opt=[ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+				$Connection = new PDO($dsn,$user,$pass,$opt);
+				$connected = true;
+			}
+			catch (PDOException $b) {
+				$connected=false;
+				//$b;
+			}
+			return $connected;
+		}
 	}
 
  ?>

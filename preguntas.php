@@ -1,5 +1,6 @@
 <?php
-
+	require 'funciones/funciones.php';
+	conexionMysql($dsn,$user,$pass);
 	session_start();
 
 ?>

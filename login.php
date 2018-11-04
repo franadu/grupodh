@@ -2,7 +2,7 @@
 <?php
   require "funciones/funciones.php";
   require "Classes/Validate.php";
-
+  conexionMysql($dsn,$user,$pass);
   session_start();
   if (isset($_SESSION["username"])){
     if ($_SESSION["username"]!==""){

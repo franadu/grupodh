@@ -49,8 +49,17 @@ function cookieComprobate($cookie){
 
 /*Para crear las tablas de mysql en su propia Mysql*/
 require 'funciones/variablesmysql.php';
-Mysql::createTables($dsn,$user,$pass);
-Mysql::migracionUsuariosDeJsonAMysql($dsn,$user,$pass);
+
+function conexionMysql($dsn,$user,$pass){
+	if (Mysql::connectionMysql($dsn,$user,$pass)===true){
+		Mysql::createTables($dsn,$user,$pass);
+		Mysql::migracionUsuariosDeJsonAMysql($dsn,$user,$pass);
+	} else {
+		header('location:reparaciones.php');
+		exit;
+	}
+}
+
 
 
 ?>

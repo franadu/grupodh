@@ -511,8 +511,32 @@ header{
   width: 23px;
   height: 23px;
 }
-
 /*---------------------FInaliza Log_in------------------------*/
+
+
+/*Arranca reparaciones main*/
+.reparaciones {
+	height: 500px;
+	margin: 0 auto;
+	position: relative;
+}
+.reparaciones h1{
+	position: absolute;
+	top:0;
+}
+
+.reparaciones p{
+	text-align: center;
+	margin-top: 10%;
+	position: absolute;
+	top:30%;
+	left:40%;
+}
+
+
+/*Finaliza reaparaciones main*/
+
+
 
 /* ------------------- ESTE ES EL FOOTEER --------------------*/
 .pie_pagina{

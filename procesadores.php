@@ -1,11 +1,14 @@
 <?php
+ 	require 'funciones/funciones.php';
+	conexionMysql($dsn,$user,$pass);
 	session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
   <head>
     <?php require "head.php"; ?>
-    <title>Notebooks</title>
+    <title>Procesadores</title>
   </head>
   <body>
 		<!-- CABEZERA -->

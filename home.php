@@ -2,7 +2,7 @@
 <?php
 
  require "funciones/funciones.php";
-
+ conexionMysql($dsn,$user,$pass);
  	session_start();
   if(!empty($_COOKIE["username"])){
     cookieComprobate($_COOKIE);
