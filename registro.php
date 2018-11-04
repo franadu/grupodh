@@ -1,7 +1,6 @@
 <?php
 
   require "funciones/funciones.php";
-  require "Classes/Json.php";
   require "Classes/Validate.php";
   require "Classes/Usuario.php";
 

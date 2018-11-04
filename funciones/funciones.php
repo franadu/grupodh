@@ -48,7 +48,7 @@ function cookieComprobate($cookie){
 }
 
 /*Para crear las tablas de mysql en su propia Mysql*/
-require 'variablesmysql.php';
+require 'funciones/variablesmysql.php';
 Mysql::createTables($dsn,$user,$pass);
 Mysql::migracionUsuariosDeJsonAMysql();
 
