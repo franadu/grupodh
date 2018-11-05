@@ -50,16 +50,41 @@ function cookieComprobate($cookie){
 /*Para crear las tablas de mysql en su propia Mysql*/
 require 'funciones/variablesmysql.php';
 
-function conexionMysql($dsn,$user,$pass){
-	if (Mysql::connectionMysql($dsn,$user,$pass)===true){
-		Mysql::createTables($dsn,$user,$pass);
-		Mysql::migracionUsuariosDeJsonAMysql($dsn,$user,$pass);
-	} else {
-		header('location:reparaciones.php');
-		exit;
+function comprobarExistenciaMysql($dsn,$user,$pass){
+	$db=Mysql::createTables($dsn,$user,$pass);
+
+	if (empty($resulst)){
+		migracionUsuariosDeJsonAMysql($dsn,$user,$pass);
 	}
 }
 
+
+function migracionUsuariosDeJsonAMysql($dsn,$user,$pass){
+	/*Saco la info del Json*/
+	$archivo=Json::connector();
+	/*Lo transformo en un array*/
+	$usuario=json_decode($archivo, true);
+	/*Recorro todos los usuarios instanciandolos en un array*/
+	for ($i=0; $i <count($usuario["usuario"]) ; $i++) {
+		if (empty($usuario["usuario"][$i]["tel"])){
+	 			$usuario["usuario"][$i]["tel"]="null";
+	 		}
+	 	$instancias[]="('".$usuario["usuario"][$i]["nombre"]."','".$usuario["usuario"][$i]["apellido"]."','".$usuario["usuario"][$i]["mail"]."','".$usuario["usuario"][$i]["username"]."','".$usuario["usuario"][$i]["tel"]."','".$usuario["usuario"][$i]["contra"]."','".$usuario["usuario"][$i]["avatar"].")";
+ 	}
+	for ($i=0;$i<count($instacias);$i++){
+		$opt=[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+	 	$db=new PDO ($dsn,$user, $pass, $opt);
+	 	try
+	 	{
+	 		$query = $db->query("insert into user  (name,last_name,mail,username,phone,password,image) values ".$instacias[$i]);
+	 		$results=$query->fetchAll(PDO::FETCH_ASSOC);
+	 	}
+	 	catch (PDOException $a)
+	 	{
+	 		echo $a->getMessage();
+	 	}
+	}
+}
 
 
 ?>
