@@ -1,6 +1,6 @@
 <?php
-require 'Classes/Json.php';
-require 'Classes/Mysql.php';
+require '../Classes/Json.php';
+require '../Classes/Mysql.php';
 function recopilaInfoEnSesion($datos){
 	$actuales=file_get_contents("usuarios/json.json");
 	$actuales=json_decode($actuales,true);
@@ -44,47 +44,84 @@ function cookieComprobate($cookie){
 			}
 		}
 	}
-
 }
 
 /*Para crear las tablas de mysql en su propia Mysql*/
-require 'funciones/variablesmysql.php';
 
-function comprobarExistenciaMysql($dsn,$user,$pass){
-	$db=Mysql::createTables($dsn,$user,$pass);
 
-	if (empty($resulst)){
-		migracionUsuariosDeJsonAMysql($dsn,$user,$pass);
-	}
+function comprobarExistenciaMysql(){
+  $file = buscarVariablesMysql();
+	require "$file";
+	$db=Mysql::connector($dsn,$user,$pass);
+	Mysql::createTables($db);
 }
 
 
-function migracionUsuariosDeJsonAMysql($dsn,$user,$pass){
+function migracionUsuariosDeJsonAMysql($db){
 	/*Saco la info del Json*/
 	$archivo=Json::connector();
 	/*Lo transformo en un array*/
 	$usuario=json_decode($archivo, true);
 	/*Recorro todos los usuarios instanciandolos en un array*/
-	for ($i=0; $i <count($usuario["usuario"]) ; $i++) {
-		if (empty($usuario["usuario"][$i]["tel"])){
-	 			$usuario["usuario"][$i]["tel"]="null";
-	 		}
-	 	$instancias[]="('".$usuario["usuario"][$i]["nombre"]."','".$usuario["usuario"][$i]["apellido"]."','".$usuario["usuario"][$i]["mail"]."','".$usuario["usuario"][$i]["username"]."','".$usuario["usuario"][$i]["tel"]."','".$usuario["usuario"][$i]["contra"]."','".$usuario["usuario"][$i]["avatar"].")";
- 	}
-	for ($i=0;$i<count($instacias);$i++){
-		$opt=[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-	 	$db=new PDO ($dsn,$user, $pass, $opt);
-	 	try
-	 	{
-	 		$query = $db->query("insert into user  (name,last_name,mail,username,phone,password,image) values ".$instacias[$i]);
-	 		$results=$query->fetchAll(PDO::FETCH_ASSOC);
-	 	}
-	 	catch (PDOException $a)
-	 	{
-	 		echo $a->getMessage();
-	 	}
+	if (isset($usuario["usuario"][0]["nombre"])){
+		for ($i=0; $i <count($usuario["usuario"]) ; $i++) {
+			/*Me fijo si phone esta vacio para nullearlo*/
+			if (empty($usuario["usuario"][$i]["tel"])){
+				$usuario["usuario"][$i]["tel"]="null";
+			}
+			/*Escribo el insert*/
+			$instancias[$i]="('".$usuario["usuario"][$i]["nombre"]."','".$usuario["usuario"][$i]["apellido"]."','".$usuario["usuario"][$i]["mail"]."','".$usuario["usuario"][$i]["username"]."','".$usuario["usuario"][$i]["tel"]."','".$usuario["usuario"][$i]["contra"]."','".$usuario["usuario"][$i]["avatar"]."')";
+		}
+		for ($i=0;$i<count($usuario["usuario"]);$i++){
+			try
+			{
+				$query = $db->query("insert into user  (name,last_name,mail,username,phone,password,image) values ".$instancias[$i]);
+				$results=$query->fetchAll(PDO::FETCH_ASSOC);
+			}
+			catch (PDOException $a)
+			{
+				$a = $a->getMessage();
+				if (strpos($a,"General error")){
+					$a="Se han migrado a mysql con exito todos los Usuarios";
+				} else {
+					if (strpos($a,"Integrity constraint violation")){
+						$a="Se han migrado a mysql con exito todos los Usuarios";
+					}
+				}
+			}
+		}
+	} else {
+		$a = "No hay usuarios en tu archivo json.";
 	}
+	return $a;
 }
 
+function buscarVariablesMysql(){
+	$file = "variablesmysql.php";
+	if (is_file($file)){
+	} else {
+		$dir = "funciones/";
+		if (is_dir($dir)){
+			$file = "funciones/variablesmysql.php";
+		} else {
+			$dir = "../funciones/";
+			if (is_dir($dir)){
+				$file = "../funciones/variablesmysql.php";
+			} else {
+				$dir = "../../funciones/";
+				if (is_dir($dir)){
+					$file = "../../funciones/variablesmysql.php";
+				}
+			}
+		}
+	}
+	return $file;
+}
+
+comprobarExistenciaMysql();
+$file = buscarVariablesMysql();
+require "$file";
+$db=Mysql::connector($dsn,$user,$pass);
+echo migracionUsuariosDeJsonAMysql($db);
 
 ?>

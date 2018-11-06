@@ -56,13 +56,18 @@
     }
 
     public static function connector(){
-      $archivo = "usuarios/json.json";
-      if(is_dir($archivo)){
-        return file_get_contents($archivo);
-      }else{
-        $archivo=self::JsonCreate();
-        return file_get_contents($archivo);
+      $dir = "../usuarios/";
+      if(is_dir($dir)){
+        $archivo = "../usuarios/json.json";
+       }else{
+        $dir = "usuarios/";
+        if (is_dir($dir)){
+          $archivo = "usuario/json.json";
+        } else {
+          $archivo=self::JsonCreate();
+        }
       }
+      return file_get_contents($archivo);
     }
 
     public static function objectToArray($usuario){

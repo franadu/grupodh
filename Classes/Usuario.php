@@ -25,28 +25,6 @@
 			$this->image=$image;
 		}
 
-		public function guardarUsuario(User $user,$dsn,$root,$pass)
-		{
-
-			$opt=[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-	    $db=new PDO ($dsn,$user, $pass, $opt);
-			if (empty($user->getPhone()==="")){
-				$i="null";
-				$user->setPhone($i);
-			}
-			$instancia="('".$user->getName()."','".$user->getLast_Name()."','".$user->getMail()"','".$user->getUsername()."','".$user->getPhone()."','".$user->getPassword()."','".$user->getAvatar()."')";
-			try
-			{
-	      $query = $db->query("insert into user  (name,last_name,mail,username,phone,password,image) values $instacia");
-				$results=$query->fetchAll(PDO::FETCH_ASSOC);
-			}
-			catch (PDOException $a)
-			{
-				echo $a->getMessage();
-			}
-
-		}
-
 		/*Arrancan Setters*/
 		public function setId($id)
 		{
