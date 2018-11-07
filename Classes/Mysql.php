@@ -149,17 +149,17 @@
 		}
 	}
 
-	require "Usuario.php";
-	require '../funciones/variablesmysql.php';
-	$usuario=new User("Martin","Martinez","martmart","unmail@mail.co","","","asidnvbionbponioasbi498bi2asd/+9");
-	$db=Mysql::connector($dsn,$user,$pass);
-	$results=Mysql::buscarUsuario($usuario,$db);
-	echo "<br><pre>";
-	var_dump($results);
-	echo "<pre>";
-	if (empty($results)){
-		echo "estoy vacio";
-	} else {
-		echo "estoy lleno";
-	}
+	// require "Usuario.php";
+	// require './funciones/variablesmysql.php';
+	// $usuario=new User("Martin","Martinez","martmart","unmail@mail.co","","","asidnvbionbponioasbi498bi2asd/+9");
+	// $db=Mysql::connector($dsn,$user,$pass);
+	// $results=Mysql::buscarUsuario($usuario,$db);
+	// echo "<br><pre>";
+	// var_dump($results);
+	// echo "<pre>";
+	// if (empty($results)){
+	// 	echo "estoy vacio";
+	// } else {
+	// 	echo "estoy lleno";
+	// }
  ?>

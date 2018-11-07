@@ -34,17 +34,17 @@ function cookieComprobate($cookie){
 
 	$archivo = Json::connector();
 	$json = json_decode($archivo, True);
-
 	for ($i=0; $i < count($json["usuario"]); $i++) {
 	if ($json["usuario"][$i]["username"] == $cookie["username"]) {
-			for ($j=0; $j < count($json["usuario"][$i]); $i++){
-				if (password_verify($json["usuario"][$i][$j], $cookie["verify"])) {
-					recopilaInfoEnSesion();
+			foreach ($json["usuario"][$i] as $key => $value) {
+				if (password_verify($value, $cookie["verify"])) {
+					recopilaInfoEnSesion($cookie);
 				}
 			}
 		}
 	}
 }
+
 
 /*Para crear las tablas de mysql en su propia Mysql*/
 function comprobarExistenciaMysql(){
