@@ -7,12 +7,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php require "head.php"; ?>
+    <?php require "html/head.php"; ?>
     <title>Notebooks</title>
   </head>
   <body>
 		<!-- CABEZERA -->
-	<?php require "header.php"; ?>
+	<?php require "html/header.php"; ?>
 	<!-- CABEZERA -->
 
     <!-- AUQI EMPIENZA EL CUERPO PIRNCIPAL DE LA PAGINA -->
@@ -125,9 +125,9 @@
       </main>
       <!-- AUI TERMINA LA CAJA CONTENEDORA DE LOS ARTICULOS -->
       <!-- ESTE ES EL MENU LATERAL SOLO VISIBLE EN DESKTOP -->
-    <?php require "categorias.php"; ?>
+    <?php require "html/categorias.php"; ?>
     </div>
     <!-- ESTE ES EL PIE DE PAGINA -->
-    <?php require "footer.php"; ?>
+    <?php require "html/footer.php"; ?>
   </body>
 </html>

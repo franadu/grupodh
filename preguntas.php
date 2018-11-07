@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <?php require "head.php"; ?>
+    <?php require "html/head.php"; ?>
     <title>Preguntas Frecuentes</title>
   </head>
 
   <body>
 		<!-- CABEZERA -->
-	<?php require "header.php"; ?>
+	<?php require "html/header.php"; ?>
 	<!-- CABEZERA -->
     <!-- CUERPO PRINCIPAL -->
     <main class="main_preguntas">
@@ -64,7 +64,7 @@
     </main><!-- CUERPO PRINCIPAL -->
 
     <footer>
-      <?php require "footer.php"; ?>
+      <?php require "html/footer.php"; ?>
     </footer>
   </body>
 </html>

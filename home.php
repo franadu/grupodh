@@ -12,12 +12,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
-		<?php require "head.php"; ?>
+		<?php require "html/head.php"; ?>
 		<title>Tu Nueva Empresa</title>
 	</head>
 	<body class="cuerpohome">
 			<!-- CABEZERA -->
-		<?php require "header.php"; ?>
+		<?php require "html/header.php"; ?>
     <!-- CABEZERA -->
 
 		<!-- .............ESTE ES EL BANNER................ -->
@@ -131,10 +131,10 @@
 				</div>
 
 				<!-- .......CATEGORIAS........ -->
-				<?php require "categorias.php"; ?>
+				<?php require "html/categorias.php"; ?>
 
 			</div>
 		</main>
-		<?php require "footer.php"; ?>
+		<?php require "html/footer.php"; ?>
 	</body>
 </html>

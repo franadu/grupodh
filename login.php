@@ -24,12 +24,12 @@
 ?>
 <html lang="en" dir="ltr">
   <head>
-    <?php require "head.php"; ?>
+    <?php require "html/head.php"; ?>
     <title>Login</title>
   </head>
   <body class = login_body>
     <!-- CABEZERA -->
-    <?php require "header.php"; ?>
+    <?php require "html/header.php"; ?>
     <!-- CABEZERA -->
     <main class="main_login">
       <form class="caja_formulario" action="" method="post">
@@ -62,6 +62,6 @@
         </div>
       </form>
     </main>
-    <?php require "footer.php"; ?>
+    <?php require "html/footer.php"; ?>
   </body>
 </html>
