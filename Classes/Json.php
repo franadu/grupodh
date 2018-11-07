@@ -62,7 +62,7 @@
        }else{
         $dir = "usuarios/";
         if (is_dir($dir)){
-          $archivo = "usuario/json.json";
+          $archivo = "usuarios/json.json";
         } else {
           $archivo=self::JsonCreate();
         }

@@ -1,6 +1,6 @@
 <?php
-require '../Classes/Json.php';
-require '../Classes/Mysql.php';
+require 'Classes/Json.php';
+require 'Classes/Mysql.php';
 function recopilaInfoEnSesion($datos){
 	$actuales=file_get_contents("usuarios/json.json");
 	$actuales=json_decode($actuales,true);
@@ -47,13 +47,12 @@ function cookieComprobate($cookie){
 }
 
 /*Para crear las tablas de mysql en su propia Mysql*/
-
-
 function comprobarExistenciaMysql(){
   $file = buscarVariablesMysql();
 	require "$file";
 	$db=Mysql::connector($dsn,$user,$pass);
-	Mysql::createTables($db);
+	$a=Mysql::createTables($db);
+	 /*verdadero si paso la prueba de la creacion de la base de datos*/
 }
 
 
@@ -86,13 +85,23 @@ function migracionUsuariosDeJsonAMysql($db){
 				} else {
 					if (strpos($a,"Integrity constraint violation")){
 						$a="Se han migrado a mysql con exito todos los Usuarios";
+					} else {
+						$db=null;
+						$results=null;
+						$query=null;
+						header("location:reparaciones.php?error=$a");
+						exit;
 					}
 				}
 			}
 		}
 	} else {
-		$a = "No hay usuarios en tu archivo json.";
+		$a = true;
 	}
+	$a=true;
+	$db=null;
+	$results=null;
+	$query=null;
 	return $a;
 }
 
@@ -118,10 +127,12 @@ function buscarVariablesMysql(){
 	return $file;
 }
 
-comprobarExistenciaMysql();
-$file = buscarVariablesMysql();
-require "$file";
-$db=Mysql::connector($dsn,$user,$pass);
-echo migracionUsuariosDeJsonAMysql($db);
+function obligacionMysql(){
+	comprobarExistenciaMysql();
+	$file = buscarVariablesMysql();
+	require "$file";
+	$db=Mysql::connector($dsn,$user,$pass);
+	$a=migracionUsuariosDeJsonAMysql($db);
+}
 
 ?>

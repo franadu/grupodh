@@ -3,7 +3,7 @@
   require "funciones/funciones.php";
   require "Classes/Validate.php";
   require "Classes/Usuario.php";
-  conexionMysql($dsn,$user,$pass);
+	obligacionMysql();
   $db = new Json();
 
 

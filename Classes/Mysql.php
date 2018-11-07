@@ -132,17 +132,34 @@
 			/*PAra seguir haciendo*/
 		}
 
-
+		static public function buscarUsuario(User $usuario,$db)
+		{
+			$username=$usuario->getUsername();
+			try
+			{
+				$query=$db->query("select * from user where username = '$username';");
+				$results=$query->fetchAll(PDO::FETCH_ASSOC);
+			}
+			catch(PDOException $a)
+			{
+				$a->getMessage();
+				echo "<br>".$a."<br>";
+			}
+			return $results;
+		}
 	}
-	//
-	// require '../funciones/variablesmysql.php';
-	// require 'Usuario.php';
-	// $usuario = new User("Martin","Martinez","MartMart","mai@mail.co","","default","nadioginvbeponasdbp");
-	// // $db = Mysql::connector($dsn,$user,$pass);
-	// // $error=Mysql::guardarUsuario($usuario,$db);
-	// $db = Mysql::connector($dsn,$user,$pass);
-	// $array=Mysql::buscaMailUsername($usuario,$db);
-	// echo "<br><pre>";
-	// var_dump($array);
-	// echo "</pre>";
+
+	require "Usuario.php";
+	require '../funciones/variablesmysql.php';
+	$usuario=new User("Martin","Martinez","martmart","unmail@mail.co","","","asidnvbionbponioasbi498bi2asd/+9");
+	$db=Mysql::connector($dsn,$user,$pass);
+	$results=Mysql::buscarUsuario($usuario,$db);
+	echo "<br><pre>";
+	var_dump($results);
+	echo "<pre>";
+	if (empty($results)){
+		echo "estoy vacio";
+	} else {
+		echo "estoy lleno";
+	}
  ?>
