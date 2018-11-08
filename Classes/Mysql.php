@@ -125,19 +125,19 @@
 			return $resultado;
 		}
 
-		static public function guardarObjeto(Object $object,$db)
-		{
-			$nombredeclase = get_class($object);
-			$array = get_class_methods($nombredeclase);
-			/*PAra seguir haciendo*/
-		}
+		// static public function guardarObjeto(Object $object,$db)
+		// {
+		// 	$nombredeclase = get_class($object);
+		// 	$array = get_class_methods($nombredeclase);
+		// 	/*PAra seguir haciendo*/
+		// }
 
 		static public function buscarUsuario($usuario,$db)
 		{
 			if (is_object($usuario)){
 				$username=$usuario->getUsername();
 			} else {
-				$username = $usuario[0]["username"];
+				$username = $usuario["usuario"][0]["username"];
 			}
 
 			try
@@ -170,6 +170,17 @@
 				echo $a;
 			}
 			return $results;
+		}
+
+		static public function countUsers($conn)
+		{
+			try {
+				$query = $conn->query("select count(username) as cantidad from user");
+				$results = $query->fetchAll(PDO::FETCH_ASSOC);
+			} catch (PDOException $a) {
+				$a->getMessage();
+			}
+			return $results["cantidad"];
 		}
 	}
 

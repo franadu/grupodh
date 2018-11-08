@@ -110,4 +110,36 @@ function buscarDirClasses(){
 	}
 	return $dir;
 }
+
+function guardarImagenEnServidor($db,$imagen,User $usuario){
+	if (get_class($db)==="Json"){
+		$archivo= Json::connector();
+		$archivo = json_decode($archivo, True);
+		$ultimoID=(count($archivo["usuario"]));
+	} else {
+		$file=buscarVariablesMysql();
+		require "$file";
+		$conn=Mysql::connector($dsn,$user,$pass);
+		$ultimoID=Mysql::countUsers($conn);
+	}
+	$target_dir = "assets/uploads/usuarios/$ultimoID/";
+	if (!is_dir($target_dir)) {
+			mkdir($target_dir, 0777, true);
+			/*Que es esto????*/
+			//$archivo["usuario"][] = $usuario;
+	}
+	/*Si sube imagen ya se setea la foto en el avatar*/
+	$array = $imagen["avatar"];
+	if($array["name"] != ""){
+		$target_file=$target_dir.basename($imagen["avatar"]["name"]);
+		move_uploaded_file($imagen["avatar"]["tmp_name"],$target_file);
+		/*Copio la info en datos*/
+		$usuario->setAvatar($target_file);
+	} else {
+		$usuario->setAvatar("images/if_user_309035.png");
+	}
+	return $usuario;
+}
+
+
 ?>

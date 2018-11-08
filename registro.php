@@ -2,7 +2,7 @@
 
   require "funciones/funciones.php";
 	obligacionMysql();
-  $db = new Json();
+  $db = new Mysql();
 
 
   session_start();
@@ -30,8 +30,15 @@
     $error = Validate::RegisterValidate($db, $usuario, $_POST, $_FILES);
 
     if (!$error){/*! es verdadero $error => !no => si*/
-
-      $db->guardarUsuario($usuario,$_FILES);
+      $usuario=guardarImagenEnServidor($db,$_FILES,$usuario);
+      if (get_class($db)==="Json"){
+        $db->guardarUsuario($usuario);
+      } else {
+        $file=buscarVariablesMysql();
+        require "$file";
+        $conn = Mysql::connector($dsn,$user,$pass);
+        Mysql::guardarUsuario($usuario,$conn);
+      }
       header("location:login.php");
       exit;
     }

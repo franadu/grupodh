@@ -3,7 +3,7 @@
 	abstract class Db
 	{
 
-		abstract protected function guardarUsuario($usuario, $imagen);
+		abstract protected function guardarUsuario($usuario);
 	}
 
 ?>
