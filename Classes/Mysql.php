@@ -186,7 +186,6 @@
 			try {
 				$query = $conn->query("select id as cantidad from user order by id desc limit 1");
 				$results = $query->fetchAll(PDO::FETCH_ASSOC);
-				var_dump($results);
 			} catch (PDOException $a) {
 				$a->getMessage();
 			}
