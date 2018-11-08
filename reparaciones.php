@@ -10,6 +10,7 @@
 		<main class="reparaciones">
 			<h1>Ooops</h1>
 			<p>El sitio esta siendo reparado vuelva pronto</p>
+			<p><?php  if(isset($_GET["error"])) { echo $_GET["error"];} ?></p>
 		</main>
 		<?php require 'html/footer.php'; ?>
 	</body>

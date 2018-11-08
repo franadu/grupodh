@@ -1,11 +1,11 @@
 
 <?php
 
- require "funciones/funciones.php";
- obligacionMysql();
+  require "funciones/funciones.php";
+  obligacionMysql();
  	session_start();
   if(!empty($_COOKIE["username"])){
-    cookieComprobate($_COOKIE);
+    Mysql::cookieComprobateMysql($_COOKIE);
   }
 
 ?>

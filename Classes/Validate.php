@@ -9,21 +9,29 @@
       return $pass1 == $pass2;
     }
 
-    public static function ValidarSiExiste($db, $username, $email){
-      $datos = json_decode($db, True);
-      $disponible = true;
-      // echo "<pre>";
-      // var_dump($datos);
-      // echo "</pre>";
-      if(file_exists("usuarios/json.json") && $datos["usuario"]){
-        for ($i=0; $i < count($datos["usuario"]); $i++) {
-        //Me fijo si el usuario ingresado ya existe
-        if ($datos["usuario"][$i]["username"] == $username || $datos["usuario"][$i]["mail"] == $email) {
-            return true;
+    public static function ValidarSiExiste($db, $username, $email)
+    {
+      if(get_class($db)==="Json"){
+        $datos = json_decode($db::connector(), True);
+        if(file_exists("usuarios/json.json") && $datos["usuario"]){
+          for ($i=0; $i < count($datos["usuario"]); $i++) {
+          //Me fijo si el usuario ingresado ya existe
+            if ($datos["usuario"][$i]["username"] == $username || $datos["usuario"][$i]["mail"] == $email) {
+              return true;
+            }
           }
         }
-      }else{
         return false;
+      } else {
+        $file=buscarVariablesMysql();
+        require "$file";
+        $conn=Mysql::connector($dsn,$user,$pass);
+        $results=Mysql::buscarUsuarioEnFormaDeVariable($username,$mail,$conn);
+        if (!empty($results)){
+          return true;
+        } else {
+          return false;
+        }
       }
     }
 
@@ -40,7 +48,8 @@
       if(strlen($user->getUsername()) < 2){
         $error['username'] = "Debe introducir un usuario correcto";
       }
-      if (self::validarSiExiste($db::connector(), $user->getUsername(), $user->getMail())) {
+
+      if (self::validarSiExiste($db, $user->getUsername(), $user->getMail())) {
           $error["username"] ="Ya existe este usuario o mail";
 
       }
@@ -73,7 +82,7 @@
       return $error;
     }
 
-    public static function loginValidate($datos){
+    public static function loginValidate($datos,$db){
     	/*Consigo el contenido*/
     	$inicia="El usuario no Existe";
     	if (file_exists("usuarios/json.json")){

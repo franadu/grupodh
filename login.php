@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <?php
   require "funciones/funciones.php";
-  require "Classes/Validate.php";
   obligacionMysql();
-  session_start();
+  $db=new Mysql();
   if (isset($_SESSION["username"])){
     if ($_SESSION["username"]!==""){
       header("location:home.php");
@@ -12,11 +11,20 @@
   }
 
   if (!empty($_POST)){
-    $inicia=Validate::loginValidate($_POST);
+    $inicia=Validate::loginValidate($_POST,$db);
     if ($inicia===true){
       session_start();
-      recopilaInfoEnSesion($_POST);
-      cookieCreate($_POST, $_SESSION);
+      if (get_class($db)==="Json"){
+        Session::recopilaInfoEnSesionJson($_POST);
+      } else {
+        $username=$_POST["username"];
+        $conn=Mysql::connector($dsn,$user,$pass);
+        /*Usuario en Array*/
+        $usuario=Mysql::buscarUsuarioEnFormaDeVariable($username,"",$conn);
+        /*Paso el usuario que lo puedo buscar en forma de array*/
+        Session::recopilaInfoEnSesionMysql($usuario,$conn);
+      }
+      Cookie::cookieCreate($_POST, $_SESSION);
       header("location:home.php");
       exit;
     }

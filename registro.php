@@ -1,8 +1,6 @@
 <?php
 
   require "funciones/funciones.php";
-  require "Classes/Validate.php";
-  require "Classes/Usuario.php";
 	obligacionMysql();
   $db = new Json();
 

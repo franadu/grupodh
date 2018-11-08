@@ -14,7 +14,7 @@
 				$error =$error->getMessage();
 				if ($error==="could not find driver"){
 					$error = "No se encontro la base de datos.";
-					header("location:../reparaciones.php?error=$error");
+					header("location:reparaciones.php?error=$error");
 					exit;
 				}
 			}
@@ -132,9 +132,14 @@
 			/*PAra seguir haciendo*/
 		}
 
-		static public function buscarUsuario(User $usuario,$db)
+		static public function buscarUsuario($usuario,$db)
 		{
-			$username=$usuario->getUsername();
+			if (is_object($usuario)){
+				$username=$usuario->getUsername();
+			} else {
+				$username = $usuario[0]["username"];
+			}
+
 			try
 			{
 				$query=$db->query("select * from user where username = '$username';");
@@ -144,6 +149,25 @@
 			{
 				$a->getMessage();
 				echo "<br>".$a."<br>";
+			}
+			return $results;
+		}
+
+		static public function buscarUsuarioEnFormaDeVariable($username,$mail="",$db)
+		{
+			$espacio=";";
+			if ($mail!==""){
+				$espacio=" or mail like '$mail';";
+			}
+			try
+			{
+				$query=$db->query("select username,mail from user where username = '$username'$espacio");
+				$results=$query->fetchAll(PDO::FETCH_ASSOC);
+			}
+			catch(PDOException $a)
+			{
+				$a->getMessage();
+				echo $a;
 			}
 			return $results;
 		}

@@ -1,50 +1,15 @@
 <?php
-require 'Classes/Json.php';
-require 'Classes/Mysql.php';
-function recopilaInfoEnSesion($datos){
-	$actuales=file_get_contents("usuarios/json.json");
-	$actuales=json_decode($actuales,true);
-	for ($i=0; $i < count($actuales["usuario"]); $i++){
-		if ($datos["username"]===$actuales["usuario"][$i]["username"]){
-			foreach ($actuales["usuario"][$i] as $key => $value) {
-				if ($key!=="contra"){
-					$_SESSION["$key"]=$value;
-				}
-			}
-		}
-	}
-}
+$dir=buscarDirClasses();
+require "$dir/Json.php";
+require "$dir/Mysql.php";
+require "$dir/Precio.php";
+require "$dir/Usuario.php";
+require "$dir/Validate.php";
 
 function logout(){
 	session_start();
 	session_destroy();
 }
-
-function cookieCreate($date, $session){
-		if ($date["recordarme"] == "on") {
-
-			$verify = password_hash($session["mail"],PASSWORD_DEFAULT);
-			setcookie("username",$session["username"],time()+(60*60));
-			setcookie("verify",$verify,time()+(60*60));
-
-	}
-}
-
-function cookieComprobate($cookie){
-
-	$archivo = Json::connector();
-	$json = json_decode($archivo, True);
-	for ($i=0; $i < count($json["usuario"]); $i++) {
-	if ($json["usuario"][$i]["username"] == $cookie["username"]) {
-			foreach ($json["usuario"][$i] as $key => $value) {
-				if (password_verify($value, $cookie["verify"])) {
-					recopilaInfoEnSesion($cookie);
-				}
-			}
-		}
-	}
-}
-
 
 /*Para crear las tablas de mysql en su propia Mysql*/
 function comprobarExistenciaMysql(){
@@ -54,7 +19,6 @@ function comprobarExistenciaMysql(){
 	$a=Mysql::createTables($db);
 	 /*verdadero si paso la prueba de la creacion de la base de datos*/
 }
-
 
 function migracionUsuariosDeJsonAMysql($db){
 	/*Saco la info del Json*/
@@ -107,19 +71,16 @@ function migracionUsuariosDeJsonAMysql($db){
 
 function buscarVariablesMysql(){
 	$file = "variablesmysql.php";
-	if (is_file($file)){
-	} else {
-		$dir = "funciones/";
-		if (is_dir($dir)){
-			$file = "funciones/variablesmysql.php";
-		} else {
-			$dir = "../funciones/";
-			if (is_dir($dir)){
-				$file = "../funciones/variablesmysql.php";
-			} else {
-				$dir = "../../funciones/";
-				if (is_dir($dir)){
-					$file = "../../funciones/variablesmysql.php";
+	if (!file_exists($file)){
+		$file = "funciones/variablesmysql.php";
+		if (!file_exists($file)){
+			$file = "../funciones/variablesmysql.php";
+			if (!file_exists($file)){
+				$file = "../../funciones/variablesmysql.php";
+				if (!file_exists($file)){
+					$file="No se encontro el archivo";
+					header("location:reparaciones.php?eror=$file");
+					exit;
 				}
 			}
 		}
@@ -135,4 +96,18 @@ function obligacionMysql(){
 	$a=migracionUsuariosDeJsonAMysql($db);
 }
 
+function buscarDirClasses(){
+	$dir="Classes/";
+	if (!file_exists($dir)){
+		$dir="../Classes/";
+		if (!file_exists($dir)){
+			$dir="../../Classes/";
+			if (!file_exists($dir)){
+				header("location:../reparaciones.php?error=$error");
+				exit;
+			}
+		}
+	}
+	return $dir;
+}
 ?>
