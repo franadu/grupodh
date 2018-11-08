@@ -1,28 +1,31 @@
-<!DOCTYPE html>
+
 <?php
+  session_start();
   require "funciones/funciones.php";
-  obligacionMysql();
-  $db=new Mysql();
   if (isset($_SESSION["username"])){
     if ($_SESSION["username"]!==""){
       header("location:home.php");
       exit;
     }
   }
+  $db=new Mysql();
+  if (get_class($db)!=="Json"){
+    obligacionMysql();
+  }
 
   if (!empty($_POST)){
     $inicia=Validate::loginValidate($_POST,$db);
     if ($inicia===true){
-      session_start();
+    //  session_start();
       if (get_class($db)==="Json"){
         Session::recopilaInfoEnSesionJson($_POST);
       } else {
         $username=$_POST["username"];
+        obligacionMysql();
+        $file = buscarVariablesMysql();
+        require "$file";
         $conn=Mysql::connector($dsn,$user,$pass);
-        /*Usuario en Array*/
-        $usuario=Mysql::buscarUsuarioEnFormaDeVariable($username,"",$conn);
-        /*Paso el usuario que lo puedo buscar en forma de array*/
-        Session::recopilaInfoEnSesionMysql($usuario,$conn);
+        Session::recopilaInfoEnSesionMysql($username,$conn);
       }
       Cookie::cookieCreate($_POST, $_SESSION);
       header("location:home.php");
@@ -30,6 +33,7 @@
     }
   }
 ?>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <?php require "html/head.php"; ?>

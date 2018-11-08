@@ -1,7 +1,7 @@
 <?php
 
   require "funciones/funciones.php";
-	obligacionMysql();
+
   $db = new Mysql();
 
 
@@ -31,9 +31,11 @@
 
     if (!$error){/*! es verdadero $error => !no => si*/
       $usuario=guardarImagenEnServidor($db,$_FILES,$usuario);
+
       if (get_class($db)==="Json"){
         $db->guardarUsuario($usuario);
       } else {
+        obligacionMysql();
         $file=buscarVariablesMysql();
         require "$file";
         $conn = Mysql::connector($dsn,$user,$pass);

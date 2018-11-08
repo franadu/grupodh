@@ -73,6 +73,7 @@
 		static public function guardarUsuario(User $usuario, $db)
 		{
 			$a=false;
+			$id= $usuario->getId();
 			$name = $usuario->getName();
 			$last_name = $usuario->getLast_Name();
 			$username = $usuario->getUsername();
@@ -81,13 +82,13 @@
 			if ($phone===""){
 				$phone = "null";
 			}
-			$password = $usuario->getPassword();
+			$password = password_hash($usuario->getPassword(),PASSWORD_DEFAULT);
 			$image = $usuario->getAvatar();
 			$db->beginTransaction();
 			try
 			{
-				$db->exec("insert into user (name,last_name,username,mail,phone,password,image) values
-				('".$name."','".$last_name."','".$username."','".$mail."','".$phone."','".$password."','".$image."')");
+				$db->exec("insert into user (id,name,last_name,username,mail,phone,password,image) values
+				('".$id."','".$name."','".$last_name."','".$username."','".$mail."','".$phone."','".$password."','".$image."')");
 				$db->commit();
 
 			}
@@ -134,11 +135,19 @@
 
 		static public function buscarUsuario($usuario,$db)
 		{
-			if (is_object($usuario)){
-				$username=$usuario->getUsername();
-			} else {
-				$username = $usuario["usuario"][0]["username"];
+			$username=$usuario;
+			if (!is_string($usuario)){
+				if (is_object($usuario)){
+					$username=$usuario->getUsername();
+				} else {
+					if (isset($usuario["username"])){
+						$username=$usuario["username"];
+						}else {
+						$username = $usuario["usuario"][0]["username"];
+					}
+				}
 			}
+
 
 			try
 			{

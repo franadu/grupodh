@@ -1,11 +1,21 @@
 
 <?php
-
+session_start();
   require "funciones/funciones.php";
-  obligacionMysql();
- 	session_start();
+  $db=new Mysql();
+  if (get_class($db)!=="Json"){
+  		obligacionMysql();
+  	}
   if(!empty($_COOKIE["username"])){
-    Mysql::cookieComprobateMysql($_COOKIE);
+    if (get_class($db)==="Json"){
+      Cookie::cookieComprobateJson($_COOKIE);
+    } else {
+      $file=buscarVariablesMysql();
+      require "$file";
+      $conn = Mysql::connector($dsn,$user,$pass);
+      Cookie::cookieComprobateMysql($_COOKIE,$conn);
+      $conn=null;
+    }
   }
 
 ?>

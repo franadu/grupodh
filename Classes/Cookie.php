@@ -21,10 +21,8 @@ class Cookie
 
 		for ($i=0; $i < count($json["usuario"]); $i++){
 			if ($cookie["username"]===$json["usuario"][$i]["username"]){
-				foreach ($json["usuario"][$i] as $key => $value) {
-					if (password_verify($value, $cookie["verify"])) {
+				if (password_verify($json["usuario"][$i]["mail"], $cookie["verify"])) {
 						Session::recopilaInfoEnSesionJson($cookie);
-					}
 				}
 			}
 		}
@@ -32,9 +30,10 @@ class Cookie
 
 	static public function cookieComprobateMysql($cookie,$db)
 	{
+		$username=$cookie["username"];
 		try
 		{
-			$query=$db->query("select username from user");
+			$query=$db->query("select * from user where username= '$username'");
 			$results=$query->fetchAll(PDO::FETCH_ASSOC);
 		}
 		catch (PDOException $a)
@@ -42,24 +41,8 @@ class Cookie
 			$a=$a->getMessage();
 			echo $a;
 		}
-		for ($i=0; $i <count($results) ; $i++) {
-		}
-		foreach ($results[$i] as $key => $value) {
-			if ($cookie["username"]===$value){
-				try {
-					$query=$db->query("select * from user where username = '$value'");
-					$results=$query->fetchAll(PDO::FETCH_ASSOC);
-				} catch (PDOException $a) {
-					$a=$a->getMessage();
-					echo $a;
-				}
-				foreach ($results as $key => $value) {
-					if (password_verify($value, $cookie["verify"])){
-						$usuario=new User($results[0]["name"],$results[0]["last_name"],$results[0]["username"],$results[0]["mail"],$results[0]["phone"],$results[0]["image"],$results[0]["password"]);
-						Session::recopilaInfoEnSesionMysql($usuario,$db);
-					}
-				}
-			}
+		if (password_verify($results[0]["mail"], $cookie["verify"])){
+			Session::recopilaInfoEnSesionMysql($username,$db);
 		}
 	}
 }

@@ -5,9 +5,12 @@ require "$dir/Mysql.php";
 require "$dir/Precio.php";
 require "$dir/Usuario.php";
 require "$dir/Validate.php";
+require "$dir/Session.php";
+require "$dir/Cookie.php";
 
 function logout(){
 	session_start();
+
 	session_destroy();
 }
 
@@ -122,6 +125,7 @@ function guardarImagenEnServidor($db,$imagen,User $usuario){
 		$conn=Mysql::connector($dsn,$user,$pass);
 		$ultimoID=Mysql::countUsers($conn);
 	}
+	$usuario->setId($ultimoID);
 	$target_dir = "assets/uploads/usuarios/$ultimoID/";
 	if (!is_dir($target_dir)) {
 			mkdir($target_dir, 0777, true);

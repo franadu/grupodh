@@ -1,8 +1,10 @@
   <?php
 
-  class Validate{
+  class Validate
+  {
 
-    public static function PasswordConfirm(User $user, $data){
+    public static function PasswordConfirm(User $user, $data)
+    {
       $pass1 = $user->getPassword();
       $pass2 = $data['conficontra'];
 
@@ -26,7 +28,7 @@
         $file=buscarVariablesMysql();
         require "$file";
         $conn=Mysql::connector($dsn,$user,$pass);
-        $results=Mysql::buscarUsuarioEnFormaDeVariable($username,$mail,$conn);
+        $results=Mysql::buscarUsuarioEnFormaDeVariable($username,$email,$conn);
         if (!empty($results)){
           return true;
         } else {
@@ -35,7 +37,8 @@
       }
     }
 
-    public static function RegisterValidate($db, $user, $data, $imagen){
+    public static function RegisterValidate($db, $user, $data, $imagen)
+    {
       $error = [];
       if(strlen($user->getName()) < 2){
         $error['nombre'] = "Introdujo un nombre muy corto.";
@@ -82,36 +85,44 @@
       return $error;
     }
 
-    public static function loginValidate($datos,$db){
-    	/*Consigo el contenido*/
-    	$inicia="El usuario no Existe";
-    	if (file_exists("usuarios/json.json")){
-    		$actuales=file_get_contents("usuarios/json.json");
-    		/*Transformo el json en un array*/
-
-    		if ($actuales===""){
-    			return $inicia;
-    		}
-    		/*Sino*/
-    		$actuales=json_decode($actuales,true);
-    		/*Comienzo una variable booleana para decidir que sucede luego
-    		si retorna falsa no puede comezar la sessión de lo contrario se inicia sessión */
-
-    		$inicia="No puso bien su contraseña o su nombre de usuario";
-    		/*Para pasarpor todos los usuarios que hay y comparar con el usuario puesto*/
-
-    		for ($i=0; $i < count($actuales["usuario"]); $i++) {
-    			if ($actuales["usuario"][$i]["username"]===$datos["username"]){
-    				/*Para verificar si la contraseña se puso bien*/
-    				if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"])){
-    					$inicia=true;
-    					return $inicia;
-    				}
-    			}
-    		}
-    	}
-    	return $inicia;
+    public static function loginValidate($datos,$db)
+    {
+      if (get_class($db)==="Json"){
+        /*Consigo el contenido*/
+      	if (file_exists("usuarios/json.json")){
+      		$actuales=file_get_contents("usuarios/json.json");
+      		/*Transformo el json en un array*/
+  		     if ($actuales!==""){
+      		/*Sino*/
+        		$actuales=json_decode($actuales,true);
+        		/*Comienzo una variable booleana para decidir que sucede luego
+        		si retorna falsa no puede comezar la sessión de lo contrario se inicia sessión */
+        		$inicia="No puso bien su contraseña o su nombre de usuario";
+        		/*Para pasarpor todos los usuarios que hay y comparar con el usuario puesto*/
+        		for ($i=0; $i < count($actuales["usuario"]); $i++) {
+        			if ($actuales["usuario"][$i]["username"]===$datos["username"]){
+        				/*Para verificar si la contraseña se puso bien*/
+        				if (password_verify($datos["contra"],$actuales["usuario"][$i]["contra"])){
+        					$inicia=true;
+        					break;
+        				}
+        			}
+        		}
+        	}
+        }
+      } else {
+        $file = buscarVariablesMysql();
+        require "$file";
+        $conn = Mysql::connector($dsn,$user,$pass);
+        $results= Mysql::buscarUsuario($datos,$conn);
+        $inicia="No puso bien su contraseña o su nombre de usuario";
+        if (!empty($results)){
+          if(password_verify($datos["contra"],$results[0]["password"])){
+            $inicia=true;
+          }
+        }
+      }
+      return $inicia;
     }
-
   }
  ?>

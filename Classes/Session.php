@@ -1,6 +1,5 @@
 <?php
-require "Json.php";
-require "Mysql.php";
+
 class Session
 {
 	public static function recopilaInfoEnSesionJson($datos)
@@ -21,9 +20,15 @@ class Session
 	public static function recopilaInfoEnSesionMysql($usuario,$db)
 	{
 		$resultado=Mysql::buscarUsuario($usuario,$db);
-		foreach ($resultado as $key => $value) {
+		foreach ($resultado[0] as $key => $value) {
 			if ($key!=="password"){
-				$_SESSION["$key"]=$value;
+				if ($key=="image"){
+					$_SESSION["avatar"]=$value;
+				} else {
+					if ($key!=="phone") {
+						$_SESSION["$key"]=$value;
+					}
+				}
 			}
 		}
 	}
