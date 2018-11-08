@@ -3,7 +3,7 @@
   require "funciones/funciones.php";
 
   $db = new Mysql();
-
+  obligacionMysql();
 
   session_start();
   if (isset($_SESSION["username"])){
@@ -35,14 +35,13 @@
       if (get_class($db)==="Json"){
         $db->guardarUsuario($usuario);
       } else {
-        obligacionMysql();
         $file=buscarVariablesMysql();
         require "$file";
         $conn = Mysql::connector($dsn,$user,$pass);
         Mysql::guardarUsuario($usuario,$conn);
       }
-      header("location:login.php");
-      exit;
+    //  header("location:login.php");
+    //  exit;
     }
   }
  ?>

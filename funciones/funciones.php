@@ -123,7 +123,7 @@ function guardarImagenEnServidor($db,$imagen,User $usuario){
 		$file=buscarVariablesMysql();
 		require "$file";
 		$conn=Mysql::connector($dsn,$user,$pass);
-		$ultimoID=Mysql::countUsers($conn);
+		$ultimoID=(Mysql::countUsers($conn)+1);
 	}
 	$usuario->setId($ultimoID);
 	$target_dir = "assets/uploads/usuarios/$ultimoID/";
