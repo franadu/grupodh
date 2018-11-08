@@ -1,6 +1,6 @@
 <?php
 
-	class Category
+	class Category extends Product
 	{
 		protected $name;//string charvar(50 caracteres)
 		protected $descriptionc; //pequeño int
