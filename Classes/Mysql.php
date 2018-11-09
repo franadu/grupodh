@@ -11,6 +11,11 @@
 				$db=new PDO ($dsn,$user,$pass,$opt);
 			}
 			catch (PDOException $error){
+				if (!isset($db)){
+					$error = "No se encontro la base de datos.";
+					header("location:reparaciones.php?error=$error");
+					exit;
+				}
 				$error =$error->getMessage();
 				if ($error==="could not find driver"){
 					$error = "No se encontro la base de datos.";

@@ -1,6 +1,7 @@
 <?php
  	require 'funciones/funciones.php';
-	session_start();$db=new Mysql();
+	session_start();
+  $db=new Mysql();
   if (get_class($db)!=="Json"){
     obligacionMysql();
   }

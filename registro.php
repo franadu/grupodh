@@ -3,7 +3,9 @@
   require "funciones/funciones.php";
 
   $db = new Mysql();
-  obligacionMysql();
+  if (get_class($db)!=="Json"){
+    obligacionMysql();
+  }
 
   session_start();
   if (isset($_SESSION["username"])){
@@ -40,8 +42,8 @@
         $conn = Mysql::connector($dsn,$user,$pass);
         Mysql::guardarUsuario($usuario,$conn);
       }
-    //  header("location:login.php");
-    //  exit;
+      header("location:login.php");
+      exit;
     }
   }
  ?>
